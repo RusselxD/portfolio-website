@@ -8,6 +8,7 @@ export default {
                 sans: ["Inter", "sans-serif"],
             },
             colors: {
+                "primary" : "#1585ff",
                 "prim-light-bg": "#f6f8fc",
                 "sec-light-bg": "#f1f3f9",
                 "prim-dark-bg": "#050610",

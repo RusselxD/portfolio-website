@@ -1,20 +1,34 @@
 import type { ReactNode } from "react";
+import SectionHeader from "./SectionHeader";
 
 interface SectionProps {
+    id: string;
     idx: number;
+
+    title?: string;
+    subTitle?: string;
+
     children: ReactNode;
 }
 
-export default function Section({ idx, children }: SectionProps) {
+export default function Section({
+    id,
+    idx,
+    title,
+    subTitle,
+    children,
+}: SectionProps) {
     return (
-        <div
-            className={`min-h-[100dvh] ${
-                idx % 2 == 0
+        <section
+            id={id}
+            className={`p-10 square-grids pt-28 min-h-[100dvh] ${
+                idx % 2 === 0
                     ? "bg-prim-light-bg dark:bg-prim-dark-bg"
                     : "bg-sec-light-bg dark:bg-sec-dark-bg"
             }`}
         >
+            {title && <SectionHeader title={title} subTitle={subTitle} />}
             {children}
-        </div>
+        </section>
     );
 }
