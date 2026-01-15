@@ -8,6 +8,7 @@ import {
     SiExpress,
     SiFastapi,
     SiTailwindcss,
+    SiDaisyui,
     SiLivewire,
     SiLaravel,
     SiPhp,
@@ -23,16 +24,19 @@ import {
     SiPycharm,
     SiVite,
     SiSwagger,
+    SiOpencv,
+    SiRoboflow,
 } from "react-icons/si";
 import { FaFigma, FaJava, FaUbuntu } from "react-icons/fa6";
 import { FaNpm, FaReact } from "react-icons/fa";
 import { DiMsqlServer, DiVisualstudio } from "react-icons/di";
 import { VscVscode } from "react-icons/vsc";
+import { LuScanEye } from "react-icons/lu";
 
 export interface Technology {
     name: string;
-    icon?: IconType;
-    color?: string;
+    icon: IconType;
+    color: string;
 }
 
 export interface SkillGroup {
@@ -150,6 +154,11 @@ export const techStackData: SkillGroup[] = [
                 color: "#06B6D4",
             },
             {
+                name: "daisyUI",
+                icon: SiDaisyui,
+                color: "#5A0EF8",
+            },
+            {
                 name: "Livewire",
                 icon: SiLivewire,
                 color: "#FB70A9",
@@ -219,6 +228,26 @@ export const techStackData: SkillGroup[] = [
                 name: "Figma",
                 icon: FaFigma,
                 color: "#F24E1E",
+            },
+        ],
+    },
+    {
+        title: "AI & Machine Learning",
+        technologies: [
+            {
+                name: "OpenCV",
+                icon: SiOpencv,
+                color: "#5C3EE8",
+            },
+            {
+                name: "Ultralytics",
+                icon: LuScanEye,
+                color: "#0060FF",
+            },
+            {
+                name: "Roboflow",
+                icon: SiRoboflow,
+                color: "#A351FB",
             },
         ],
     },

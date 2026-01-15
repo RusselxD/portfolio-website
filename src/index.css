@@ -4,7 +4,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    body {
+        @apply text-black dark:text-white;
+    }
+}
+
 @layer components {
+    .container {
+        @apply bg-container-light-bg dark:bg-container-dark-bg;
+        @apply border-2 border-gray-200 dark:border-gray-800;
+    }
+
+    .sec-text {
+        @apply text-gray-700 dark:text-gray-300;
+    }
+
     .square-grids {
         background-image: linear-gradient(
                 to right,
