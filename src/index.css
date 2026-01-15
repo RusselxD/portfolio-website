@@ -12,7 +12,7 @@
 
 @layer components {
     .container {
-        @apply bg-container-light-bg dark:bg-container-dark-bg;
+        @apply bg-container-light-bg dark:bg-container-dark-bg bg-opacity-50;
         @apply border-2 border-gray-200 dark:border-gray-800;
     }
 
@@ -20,15 +20,23 @@
         @apply text-gray-700 dark:text-gray-300;
     }
 
+    .cert-icon {
+        @apply absolute top-3 right-3 filter brightness-125 h-16 w-12;
+    }
+
+    .cert-badge {
+        @apply flex items-center gap-1.5 px-3.5 py-2 w-fit text-xs text-white;
+    }
+
     .square-grids {
         background-image: linear-gradient(
                 to right,
-                rgba(120, 120, 120, 0.05) 1px,
+                rgba(180, 180, 180, 0.07) 1px,
                 transparent 1px
             ),
             linear-gradient(
                 to bottom,
-                rgba(120, 120, 120, 0.05) 1px,
+                rgba(180, 180, 180, 0.07) 1px,
                 transparent 1px
             );
 

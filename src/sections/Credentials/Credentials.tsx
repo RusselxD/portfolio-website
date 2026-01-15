@@ -1,4 +1,5 @@
 import Section from "../../components/common/Section";
+import CertificatesContainer from "./components/CertificatesContainer";
 
 export default function Credentials() {
     return (
@@ -8,7 +9,9 @@ export default function Credentials() {
             title="Certifications"
             subTitle="Relevant certifications and credentials I've earned"
         >
-            <p></p>
+            <div className="mt-16">
+                <CertificatesContainer />
+            </div>
         </Section>
     );
 }

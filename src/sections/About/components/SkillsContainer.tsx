@@ -3,7 +3,7 @@ import { skillsData, type Skill } from "../../../data/skillsData";
 const SkillContainer = ({ skill }: { skill: Skill }) => {
     return (
         <div className="container p-5 rounded-lg">
-            <skill.icon style={{color: skill.color}} />
+            <skill.icon style={{color: skill.color}} className="w-5 h-5"/>
             <h2 className="font-semibold mt-2">{skill.title}</h2>
             <p className="text-sm sec-text mt-1">
                 {skill.subTitle}

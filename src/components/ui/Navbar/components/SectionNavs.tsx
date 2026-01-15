@@ -56,11 +56,11 @@ export default function SectionNavs() {
 
     return (
         <div className="flex gap-5 text-sm">
-            <SectionNavigator
+            {/* <SectionNavigator
                 name="Home"
                 elementId="home-section"
                 isActive={activeSection === "home-section"}
-            />
+            /> */}
             <SectionNavigator
                 name="About"
                 elementId="about-section"

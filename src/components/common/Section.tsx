@@ -22,7 +22,7 @@ export default function Section({
         <section
             id={id}
             className={`p-10 pt-24 min-h-[100dvh] ${
-                idx % 2 === 0
+                idx % 2 !== 0
                     ? "bg-prim-light-bg dark:bg-prim-dark-bg square-grids"
                     : "bg-sec-light-bg dark:bg-sec-dark-bg"
             }`}
