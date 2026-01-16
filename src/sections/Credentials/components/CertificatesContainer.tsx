@@ -14,7 +14,7 @@ const CertificateCard = ({ certificate }: { certificate: Certification }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="relative rounded-lg container w-full p-5 md:p-6"
+            className="relative rounded-lg custom-container w-full p-5 md:p-6"
         >
             {/* Main Content */}
             <div className="flex flex-col justify-between">

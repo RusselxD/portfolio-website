@@ -11,13 +11,32 @@
 }
 
 @layer components {
-    .container {
-        @apply bg-container-light-bg dark:bg-container-dark-bg bg-opacity-50;
+    .section-wrapper {
+        @apply py-20 md:py-[5.5rem] lg:py-28;
+    }
+
+    .custom-container {
+        @apply bg-container-light-bg dark:bg-container-dark-bg;
         @apply border-2 border-gray-200 dark:border-gray-800;
     }
 
+    .aurora-sphere-sm {
+        @apply absolute w-[15rem] h-[15rem] lg:w-[20rem] lg:h-[20rem] rounded-full opacity-15;
+    }
+
+    .aurora-sphere-md {
+        @apply absolute w-[20rem] h-[20rem] lg:w-[25rem] lg:h-[25rem] rounded-full opacity-15;
+    }
+
     .aurora-sphere-lg {
-        @apply absolute w-[30rem] h-[30rem] lg:w-[35rem] lg:h-[35rem] rounded-full opacity-20;
+        @apply absolute w-[30rem] h-[30rem] lg:w-[35rem] lg:h-[35rem] rounded-full opacity-15;
+    }
+
+    .nav-text-inactive {
+        @apply text-gray-500;
+        @apply active:font-semibold lg:hover:font-semibold;
+        @apply active:hover:text-gray-900 lg:hover:text-gray-900 active:dark:text-white lg:hover:dark:text-white;
+        @apply active:bg-gray-200 lg:hover:bg-gray-200 active:dark:bg-gray-800 lg:hover:dark:bg-gray-800;
     }
 
     .sec-text {

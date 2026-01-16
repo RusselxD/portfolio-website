@@ -21,7 +21,7 @@ export default function SkillGroupContainer({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="p-4 xl:p-5 rounded-lg container break-inside-avoid mb-3"
+            className="p-4 xl:p-5 rounded-lg custom-container break-inside-avoid mb-3"
         >
             <p className="lg:text-lg font-semibold">{skillGroup.title}</p>
 

@@ -9,11 +9,11 @@ import { motion } from "framer-motion";
 export default function About() {
     return (
         <Section id="about-section" idx={1}>
-            <div className="px-3 md:px-5 xl:px-20 grid grid-cols-1 lg:grid-cols-2 gap-5 xl:gap-8 mt-10 relative">
+            <div className="section-wrapper px-3 md:px-5 xl:px-20 grid grid-cols-1 lg:grid-cols-2 gap-5 xl:gap-8 relative">
 
                 <div className="absolute inset-0 blur-3xl opacity-100 overflow-hidden">
-                    <div className=" bottom-4/4 lg:bottom-1/4 left-1/3 md:left-2/4 aurora-sphere-lg bg-[#00df9b]"></div>
-                    <div className=" top-2/4 md:bottom-1/4 right-1/4 md:right-2/4 aurora-sphere-lg bg-[#686eff]"></div>
+                    <div className="bottom-4/4 lg:bottom-1/4 left-1/3 md:left-2/4 aurora-sphere-lg bg-[#00df9b]"></div>
+                    <div className="top-2/4 md:bottom-1/4 right-1/4 md:right-2/4 aurora-sphere-lg bg-[#8B8FFF]"></div>
                 </div>
 
                 {/* Left Side */}

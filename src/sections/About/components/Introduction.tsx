@@ -2,14 +2,13 @@ export default function Introduction() {
     return (
         <div className="sec-text leading-8 text-[0.800rem] md:text-sm xl:text-base">
             <p className="leading-8 text-justify">
-                I focus on improving user experiences through thoughtful,
-                well-structured software. I build systems by considering flow,
-                reliability, and how each component contributes to the bigger
-                picture. By planning architecture before features, I ensure
-                solutions are stable, clear, and scalable. I approach
-                development as an opportunity to create efficient, organized,
-                and maintainable systems, combining practicality with curiosity
-                to refine every step.
+                Focused on creating thoughtful, well-structured software, with
+                attention to flow, reliability, and how each part fits into the
+                larger system. Architecture is planned before features, ensuring
+                solutions remain stable, clear, and scalable as they grow.
+                Development is approached as a chance to build efficient,
+                organized, and maintainable systems through practical thinking,
+                curiosity, and continuous refinement.
             </p>
             <ul className="mt-3 list-disc list-inside leading-8">
                 <li>Breaks complex problems into logical, manageable steps</li>

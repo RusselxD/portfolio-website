@@ -18,10 +18,10 @@ const SectionNavigator = ({
                     .getElementById(elementId)
                     ?.scrollIntoView({ behavior: "smooth" })
             }
-            className={`py-2 px-4 rounded-lg transition-colors ${
+            className={`py-2.5 pr-10 pl-3 md:py-2 md:px-4 text-left md:text-center md:rounded-lg transition-colors ${
                 isActive
                     ? "text-primary bg-primary/20 font-bold"
-                    : "text-gray-500 hover:font-semibold hover:bg-gray-200 hover:text-gray-900 hover:dark:text-white hover:dark:bg-gray-800"
+                    : "nav-text-inactive"
             }`}
         >
             {name}
@@ -30,7 +30,7 @@ const SectionNavigator = ({
 };
 
 export default function SectionNavs() {
-    const [activeSection, setActiveSection] = useState("home-section");
+    const [activeSection, setActiveSection] = useState("about-section");
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -55,12 +55,7 @@ export default function SectionNavs() {
     }, []);
 
     return (
-        <div className="flex gap-5 text-sm">
-            {/* <SectionNavigator
-                name="Home"
-                elementId="home-section"
-                isActive={activeSection === "home-section"}
-            /> */}
+        <div className="gap-0 md:gap-5 text-sm flex flex-col md:flex-row">
             <SectionNavigator
                 name="About"
                 elementId="about-section"
