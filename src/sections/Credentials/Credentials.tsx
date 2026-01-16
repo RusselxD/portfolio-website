@@ -9,7 +9,7 @@ export default function Credentials() {
             title="Certifications"
             subTitle="Relevant certifications and credentials I've earned"
         >
-            <div className="mt-16">
+            <div className="px-3 md:px-5 xl:px-20">
                 <CertificatesContainer />
             </div>
         </Section>

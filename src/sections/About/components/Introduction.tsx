@@ -1,6 +1,6 @@
 export default function Introduction() {
     return (
-        <div className="sec-text leading-8">
+        <div className="sec-text leading-8 text-[0.800rem] md:text-sm xl:text-base">
             <p className="leading-8 text-justify">
                 I focus on improving user experiences through thoughtful,
                 well-structured software. I build systems by considering flow,
@@ -11,7 +11,7 @@ export default function Introduction() {
                 and maintainable systems, combining practicality with curiosity
                 to refine every step.
             </p>
-            <ul className="mt-3 list-disc list-inside">
+            <ul className="mt-3 list-disc list-inside leading-8">
                 <li>Breaks complex problems into logical, manageable steps</li>
                 <li>
                     Prioritizes clean data flow and consistent system behavior

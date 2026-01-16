@@ -14,15 +14,15 @@ const CertificateCard = ({ certificate }: { certificate: Certification }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="relative rounded-lg container"
+            className="relative rounded-lg container w-full p-5 md:p-6"
         >
             {/* Main Content */}
-            <div className="p-6 flex flex-col justify-between">
+            <div className="flex flex-col justify-between">
                 <div>
-                    <h2 className="text-xl font-bold mb-3">
+                    <h2 className="lg:text-lg font-bold mb-2">
                         {certificate.title}
                     </h2>
-                    <p className="sec-text text-sm mb-2">
+                    <p className="sec-text text-sm mb-1">
                         {certificate.issuer}
                     </p>
                     <p className="sec-text text-xs mb-5">{certificate.date}</p>
@@ -89,7 +89,7 @@ const CertificateCard = ({ certificate }: { certificate: Certification }) => {
 export default function CertificatesContainer() {
     const certifications: Certification[] = certificates;
     return (
-        <div className="grid grid-cols-3 gap-7">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-3 xl:gap-7">
             {certifications.map((cert) => {
                 return <CertificateCard certificate={cert} key={cert.title} />;
             })}

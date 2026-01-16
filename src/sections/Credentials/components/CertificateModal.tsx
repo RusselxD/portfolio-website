@@ -24,14 +24,14 @@ export default function CertificateModal({
                 className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4"
             >
                 <div
-                    className="relative overflow-hidden bg-white dark:bg-gray-900 rounded-lg shadow-2xl"
+                    className="relative overflow-hidden bg-white dark:bg-gray-900 rounded-md shadow-2xl"
                     onClick={(e) => e.stopPropagation()}
                 >
                     <button
                         onClick={() => setShowCertificate(false)}
-                        className="absolute top-4 right-4 p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors z-10"
+                        className="absolute top-2 right-2 p-1.5 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors z-10"
                     >
-                        <IoClose className="w-6 h-6" />
+                        <IoClose className="w-5 h-5" />
                     </button>
 
                     <img

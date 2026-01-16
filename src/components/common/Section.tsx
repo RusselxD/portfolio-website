@@ -21,7 +21,7 @@ export default function Section({
     return (
         <section
             id={id}
-            className={`p-10 pt-24 min-h-[100dvh] ${
+            className={`pb-16 pt-16 md:pt-[5.5rem] lg:pt-24 ${
                 idx % 2 !== 0
                     ? "bg-prim-light-bg dark:bg-prim-dark-bg square-grids"
                     : "bg-sec-light-bg dark:bg-sec-dark-bg"

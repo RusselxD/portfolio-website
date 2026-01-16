@@ -12,8 +12,7 @@ export default function Skills() {
             title="Skills & Technologies"
             subTitle="Technologies and tools I use to bring ideas to life"
         >
-            <div className="grid grid-cols-3 gap-5 mt-16">
-
+            <div className="px-3 md:px-5 xl:px-20 columns-1 md:columns-2 lg:columns-3 gap-3 ">
                 {skillGroups.map((group, i) => {
                     return <SkillGroupContainer skillGroup={group} key={i} />;
                 })}

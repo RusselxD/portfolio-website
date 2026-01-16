@@ -22,7 +22,7 @@ export const skillsData: Skill[] = [
     },
     {
         title: "Data Structures & Algorithms",
-        subTitle: "Optimized problem-solving techniques",
+        subTitle: "Efficient problem solving",
         icon: SiLeetcode,
         color: "#F59E0B",
     },
@@ -40,7 +40,7 @@ export const skillsData: Skill[] = [
     },
     {
         title: "UI/UX Design",
-        subTitle: "Intuitive and interactive interfaces",
+        subTitle: "Intuitive digital experiences",
         icon: MdOutlineDashboard,
         color: "#8B5CF6",
     },

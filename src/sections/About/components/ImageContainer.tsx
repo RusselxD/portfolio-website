@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function ImageContainer() {
     return (
-        <div className="w-28 h-28 relative">
+        <div className="w-24 md:w-28 relative">
             <img
                 src={idPhoto}
                 alt="ID Photo"
