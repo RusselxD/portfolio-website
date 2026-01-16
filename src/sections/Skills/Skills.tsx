@@ -7,12 +7,7 @@ export default function Skills() {
     const skillGroups: SkillGroup[] = techStackData;
 
     return (
-        <Section
-            id="skills-section"
-            idx={3}
-            // title="Skills & Technologies"
-            // subTitle="Technologies and tools I use to bring ideas to life"
-        >
+        <Section id="skills-section" idx={3}>
             <div className="section-wrapper">
                 <SectionHeader
                     title="Skills & Technologies"

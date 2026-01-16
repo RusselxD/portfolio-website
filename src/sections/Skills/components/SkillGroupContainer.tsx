@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const SkillCapsule = ({ tech }: { tech: Technology }) => {
     return (
-        <div className="flex items-center gap-2 rounded-full py-2 px-3 bg-slate-200 dark:bg-gray-800">
+        <div className="flex items-center gap-2 rounded-full py-2 px-3 bg-gray-200 dark:bg-gray-800">
             <tech.icon className="w-4 h-4 lg:w-5 lg:h-5" style={{ color: tech.color }} />
             <p className="text-[0.800rem] md:text-sm font-medium">{tech.name}</p>
         </div>
@@ -21,7 +21,7 @@ export default function SkillGroupContainer({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="p-4 xl:p-5 rounded-lg custom-container break-inside-avoid mb-3"
+            className="p-4 xl:p-5 rounded-lg custom-container break-inside-avoid mb-3 "
         >
             <p className="lg:text-lg font-semibold">{skillGroup.title}</p>
 

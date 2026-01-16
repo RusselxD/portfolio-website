@@ -16,7 +16,7 @@
     }
 
     .custom-container {
-        @apply bg-container-light-bg dark:bg-container-dark-bg;
+        @apply bg-gray-100 dark:bg-container-dark-bg;
         @apply border-2 border-gray-200 dark:border-gray-800;
     }
 
