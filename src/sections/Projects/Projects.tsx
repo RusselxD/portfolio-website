@@ -1,7 +1,5 @@
 import Section from "../../components/common/Section";
 import SectionHeader from "../../components/common/SectionHeader";
-import { LuConstruction } from "react-icons/lu";
-
 
 export default function Projects() {
     return (
@@ -14,7 +12,6 @@ export default function Projects() {
 
                 <div>
                     <div className="flex flex-col items-center justify-center ">
-                        <LuConstruction className="text-6xl md:text-8xl text-gray-400 animate-pulse" />
                         <p className="mt-4 text-gray-500 text-lg md:text-xl">
                             Projects section is under construction.
                         </p>

@@ -1,7 +1,7 @@
 import type { Dispatch, SetStateAction } from "react";
 import type { Certification } from "../../../data/credentials";
 import { motion } from "framer-motion";
-import { IoClose } from "react-icons/io5";
+import { Icon } from "@iconify/react";
 
 interface CertificateModalProps {
     setShowCertificate: Dispatch<SetStateAction<boolean>>;
@@ -31,7 +31,7 @@ export default function CertificateModal({
                         onClick={() => setShowCertificate(false)}
                         className="absolute top-2 right-2 p-1.5 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors z-10"
                     >
-                        <IoClose className="w-5 h-5" />
+                        <Icon icon="iconamoon:close-bold" className="w-5 h-5" />
                     </button>
 
                     <img

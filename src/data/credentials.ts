@@ -1,8 +1,8 @@
-import javaPlv from "../assets/java_plv.png";
-import pyPlv from "../assets/py_plv.png";
-import pyUmak from "../assets/py_umak.png";
-import javaCPlv from "../assets/javaC_plv.png";
-import javaUmak from "../assets/java_umak.png";
+import javaPlv from "../assets/certificates/java_plv.png";
+import pyPlv from "../assets/certificates/py_plv.png";
+import pyUmak from "../assets/certificates/py_umak.png";
+import javaCPlv from "../assets/certificates/javaC_plv.png";
+import javaUmak from "../assets/certificates/java_umak.png";
 
 export interface Certification {
     title: string;

@@ -1,42 +1,7 @@
-import type { IconType } from "react-icons";
-import {
-    SiJavascript,
-    SiPython,
-    SiTypescript,
-    SiNodedotjs,
-    SiDotnet,
-    SiExpress,
-    SiFastapi,
-    SiTailwindcss,
-    SiDaisyui,
-    SiLivewire,
-    SiLaravel,
-    SiPhp,
-    SiMysql,
-    SiPostgresql,
-    SiMongodb,
-    SiSqlalchemy,
-    SiGit,
-    SiGithub,
-    SiPostman,
-    SiVercel,
-    SiRender,
-    SiPycharm,
-    SiVite,
-    SiSwagger,
-    SiOpencv,
-    SiRoboflow,
-} from "react-icons/si";
-import { FaFigma, FaJava, FaUbuntu } from "react-icons/fa6";
-import { FaNpm, FaReact } from "react-icons/fa";
-import { DiMsqlServer, DiVisualstudio } from "react-icons/di";
-import { VscVscode } from "react-icons/vsc";
-import { LuScanEye } from "react-icons/lu";
-
 export interface Technology {
     name: string;
-    icon: IconType;
-    color: string;
+    icon: string;
+    color?: string;
 }
 
 export interface SkillGroup {
@@ -50,28 +15,31 @@ export const techStackData: SkillGroup[] = [
         technologies: [
             {
                 name: "JavaScript",
-                icon: SiJavascript,
-                color: "#F7DF1E",
+                icon: "logos:javascript",
             },
             {
                 name: "TypeScript",
-                icon: SiTypescript,
-                color: "#3178C6",
+                icon: "logos:typescript-icon",
             },
             {
                 name: "Python",
-                icon: SiPython,
-                color: "#3776AB",
+                icon: "logos:python",
             },
             {
                 name: "Java",
-                icon: FaJava,
-                color: "#007396",
+                icon: "logos:java",
+            },
+            {
+                name: "C#",
+                icon: "devicon:csharp",
+            },
+            {
+                name: "C",
+                icon: "skill-icons:c",
             },
             {
                 name: "PHP",
-                icon: SiPhp,
-                color: "#777BB4",
+                icon: "logos:php",
             },
         ],
     },
@@ -80,28 +48,23 @@ export const techStackData: SkillGroup[] = [
         technologies: [
             {
                 name: "MySQL",
-                icon: SiMysql,
-                color: "#4479A1",
+                icon: "logos:mysql",
             },
             {
                 name: "PostgreSQL",
-                icon: SiPostgresql,
-                color: "#4169E1",
+                icon: "logos:postgresql",
             },
             {
                 name: "MongoDB",
-                icon: SiMongodb,
-                color: "#47A248",
+                icon: "logos:mongodb-icon",
             },
             {
                 name: "SQL Server",
-                icon: DiMsqlServer,
-                color: "#CC2927",
+                icon: "devicon:microsoftsqlserver",
             },
             {
                 name: "SQL Alchemy",
-                icon: SiSqlalchemy,
-                color: "#D71F00",
+                icon: "devicon-plain:sqlalchemy",
             },
         ],
     },
@@ -110,13 +73,11 @@ export const techStackData: SkillGroup[] = [
         technologies: [
             {
                 name: "Vercel",
-                icon: SiVercel,
-                color: "#000000",
+                icon: "logos:vercel-icon",
             },
             {
                 name: "Render",
-                icon: SiRender,
-                color: "#46E3B7",
+                icon: "simple-icons:render",
             },
         ],
     },
@@ -125,53 +86,48 @@ export const techStackData: SkillGroup[] = [
         technologies: [
             {
                 name: "React",
-                icon: FaReact,
-                color: "#61DAFB",
+                icon: "logos:react",
             },
             {
                 name: "Node.js",
-                icon: SiNodedotjs,
-                color: "#339933",
+                icon: "logos:nodejs-icon",
             },
             {
                 name: "Express.js",
-                icon: SiExpress,
-                color: "#339933",
+                icon: "skill-icons:expressjs-light",
             },
             {
                 name: ".NET",
-                icon: SiDotnet,
-                color: "#512BD4",
+                icon: "logos:dotnet",
             },
             {
                 name: "FastAPI",
-                icon: SiFastapi,
-                color: "#009688",
-            },
-            {
-                name: "Tailwind CSS",
-                icon: SiTailwindcss,
-                color: "#06B6D4",
-            },
-            {
-                name: "daisyUI",
-                icon: SiDaisyui,
-                color: "#5A0EF8",
+                icon: "devicon:fastapi",
             },
             {
                 name: "Livewire",
-                icon: SiLivewire,
-                color: "#FB70A9",
+                icon: "devicon:livewire",
             },
             {
                 name: "Laravel",
-                icon: SiLaravel,
-                color: "#FF2D20",
+                icon: "logos:laravel",
             },
             {
-                name: "Vite",
-                icon: SiVite,
-                color: "#646CFF",
+                name: "Alpine JS",
+                icon: "devicon:alpinejs",
+            },
+            {
+                name: "Axios",
+                icon: "simple-icons:axios",
+            },
+            {
+                name: "Tailwind CSS",
+                icon: "logos:tailwindcss-icon",
+            },
+            {
+                name: "daisyUI",
+                icon: "simple-icons:daisyui",
+                color: "#5A0EF8",
             },
         ],
     },
@@ -181,53 +137,47 @@ export const techStackData: SkillGroup[] = [
         technologies: [
             {
                 name: "Git",
-                icon: SiGit,
-                color: "#F05032",
+                icon: "logos:git-icon",
             },
             {
                 name: "Github",
-                icon: SiGithub,
-                color: "#181717",
+                icon: "logos:github-icon",
             },
             {
                 name: "VS Code",
-                icon: VscVscode,
-                color: "#007ACC",
+                icon: "logos:visual-studio-code",
             },
             {
                 name: "Visual Studio",
-                icon: DiVisualstudio,
-                color: "#5C2D91",
+                icon: "logos:visual-studio",
             },
             {
                 name: "PyCharm",
-                icon: SiPycharm,
-                color: "#00bde2",
+                icon: "logos:pycharm",
             },
             {
                 name: "Postman",
-                icon: SiPostman,
-                color: "#FF6C37",
+                icon: "logos:postman-icon",
             },
             {
                 name: "Ubuntu",
-                icon: FaUbuntu,
-                color: "#E95420",
+                icon: "logos:ubuntu",
             },
             {
                 name: "NPM",
-                icon: FaNpm,
-                color: "#CB3837",
+                icon: "logos:npm-icon",
             },
             {
                 name: "Swagger",
-                icon: SiSwagger,
-                color: "#85EA2D",
+                icon: "logos:swagger",
+            },
+            {
+                name: "Vite",
+                icon: "logos:vitejs",
             },
             {
                 name: "Figma",
-                icon: FaFigma,
-                color: "#F24E1E",
+                icon: "logos:figma",
             },
         ],
     },
@@ -236,33 +186,18 @@ export const techStackData: SkillGroup[] = [
         technologies: [
             {
                 name: "OpenCV",
-                icon: SiOpencv,
-                color: "#5C3EE8",
+                icon: "logos:opencv",
             },
             {
                 name: "Ultralytics",
-                icon: LuScanEye,
+                icon: "simple-icons:ultralytics",
                 color: "#0060FF",
             },
             {
                 name: "Roboflow",
-                icon: SiRoboflow,
+                icon: "simple-icons:roboflow",
                 color: "#A351FB",
             },
         ],
     },
-    // {
-    //     title: "API & Architecture",
-    //     technologies: [
-    //         {
-    //             name: "RESTful APIs",
-    //         },
-    //         {
-    //             name: "Websockets",
-    //         },
-    //         {
-    //             name: "JWT",
-    //         },
-    //     ],
-    // },
 ];

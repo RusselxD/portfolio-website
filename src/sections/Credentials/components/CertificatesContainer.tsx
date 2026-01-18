@@ -1,8 +1,6 @@
 import { type Certification, certificates } from "../../../data/credentials";
 import { motion } from "framer-motion";
-import { GiMedal } from "react-icons/gi";
-import { PiMedalLight } from "react-icons/pi";
-import { IoEyeOutline } from "react-icons/io5";
+import { Icon } from "@iconify/react";
 import { useState } from "react";
 import CertificateModal from "./CertificateModal";
 
@@ -34,7 +32,7 @@ const CertificateCard = ({ certificate }: { certificate: Certification }) => {
                         className="cert-badge bg-gradient-to-r from-yellow-500 to-amber-600 
                                     rounded-full shadow-lg shadow-yellow-500/40"
                     >
-                        <GiMedal className="w-3 h-3" />
+                        <Icon icon="ri:medal-line" className="w-3 h-3" />
                         <span>Gold Medal</span>
                     </span>
                 )}
@@ -43,7 +41,7 @@ const CertificateCard = ({ certificate }: { certificate: Certification }) => {
                         className="cert-badge bg-gradient-to-r from-orange-600 to-orange-800 
                                     rounded-full shadow-lg shadow-orange-600/40"
                     >
-                        <GiMedal className="w-3 h-3" />
+                        <Icon icon="ri:medal-line" className="w-3 h-3" />
                         <span>Bronze Medal</span>
                     </span>
                 )}
@@ -52,7 +50,7 @@ const CertificateCard = ({ certificate }: { certificate: Certification }) => {
                         className="cert-badge bg-gradient-to-r from-purple-600 to-blue-600 
                                     rounded-full shadow-lg shadow-purple-500/30"
                     >
-                        <PiMedalLight className="w-3 h-3" />
+                        <Icon icon="dashicons:awards" width="20" height="20" />
                         <span>University Representative</span>
                     </span>
                 )}
@@ -62,19 +60,28 @@ const CertificateCard = ({ certificate }: { certificate: Certification }) => {
                 onClick={() => setShowCertificate(!showCertificate)}
                 className="flex items-center gap-2 text-sm sec-text absolute bottom-5 right-5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
             >
-                <IoEyeOutline className="w-4 h-4" />
+                <Icon icon="mdi:eye-outline" className="w-4 h-4" />
                 <span>View</span>
             </button>
 
             {/* Medals */}
             {certificate.gold_medal && (
-                <GiMedal className="cert-icon text-yellow-600 dark:text-yellow-500 drop-shadow-[0_0_8px_rgba(234,179,8,0.6)] " />
+                <Icon
+                    icon="noto:1st-place-medal"
+                    className="cert-icon text-yellow-600 dark:text-yellow-500 drop-shadow-[0_0_8px_rgba(234,179,8,0.6)]"
+                />
             )}
             {certificate.bronze_medal && (
-                <GiMedal className="cert-icon text-orange-700 drop-shadow-[0_0_8px_rgba(194,65,12,0.5)] " />
+                <Icon
+                    icon="noto:3rd-place-medal"
+                    className="cert-icon text-orange-600 drop-shadow-[0_0_20px_rgba(194,65,12,0.5)]"
+                />
             )}
             {certificate.representative && (
-                <PiMedalLight className="cert-icon text-purple-600 drop-shadow-[0_0_8px_rgba(37,99,235,0.6)] " />
+                <Icon
+                    icon="dashicons:awards"
+                    className="cert-icon text-purple-600 drop-shadow-[0_0_8px_rgba(37,99,235,0.6)] "
+                />
             )}
 
             {showCertificate && (

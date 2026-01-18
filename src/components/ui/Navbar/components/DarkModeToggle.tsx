@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { MdOutlineWbSunny } from "react-icons/md";
-import { LuMoonStar } from "react-icons/lu";
+import { Icon } from "@iconify/react";
 
 export default function DarkModeToggle() {
     const [darkMode, setDarkMode] = useState<boolean>(() => {
@@ -33,9 +32,9 @@ export default function DarkModeToggle() {
                     }`}
                 >
                     {darkMode ? (
-                        <LuMoonStar className="w-3 h-3" />
+                        <Icon icon="ri:moon-clear-line" className="w-3 h-3" />
                     ) : (
-                        <MdOutlineWbSunny className="w-3 h-3" />
+                        <Icon icon="tabler:sun" className="w-3 h-3" />
                     )}
                 </div>
             }

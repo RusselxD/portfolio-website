@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import DarkModeToggle from "./components/DarkModeToggle";
 import SectionNavs from "./components/SectionNavs";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { IoClose } from "react-icons/io5";
+import { Icon } from "@iconify/react";
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -58,7 +57,11 @@ export default function Navbar() {
                         className="text-2xl cursor-pointer"
                         aria-label="Toggle mobile menu"
                     >
-                        {isMobileMenuOpen ? <IoClose /> : <GiHamburgerMenu />}
+                        {isMobileMenuOpen ? (
+                            <Icon icon="iconamoon:close-bold" />
+                        ) : (
+                            <Icon icon="pajamas:hamburger" />
+                        )}
                     </button>
                     <DarkModeToggle />
 

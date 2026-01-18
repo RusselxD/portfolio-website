@@ -1,15 +1,7 @@
-import { FaCode } from "react-icons/fa";
-import { TbRoute, TbBrain } from "react-icons/tb";
-import { MdOutlineDashboard } from "react-icons/md";
-import { FaDatabase } from "react-icons/fa6";
-import { SiLeetcode } from "react-icons/si";
-
-import type { IconType } from "react-icons";
-
 export interface Skill {
     title: string;
     subTitle: string;
-    icon: IconType;
+    icon: string;
     color: string;
 }
 
@@ -17,37 +9,37 @@ export const skillsData: Skill[] = [
     {
         title: "Full-Stack Development",
         subTitle: "End-to-end web solutions",
-        icon: FaCode,
+        icon: "mingcute:code-line",
         color: "#6366F1",
     },
     {
         title: "Data Structures & Algorithms",
         subTitle: "Efficient problem solving",
-        icon: SiLeetcode,
+        icon: "devicon-plain:leetcode",
         color: "#F59E0B",
     },
     {
         title: "Database Management",
         subTitle: "Efficient data storage and retrieval",
-        icon: FaDatabase,
+        icon: "mdi:database",
         color: "#3B82F6",
     },
     {
         title: "API Development",
         subTitle: "Robust and scalable APIs",
-        icon: TbRoute,
+        icon: "tabler:route",
         color: "#10B981",
     },
     {
         title: "UI/UX Design",
         subTitle: "Intuitive digital experiences",
-        icon: MdOutlineDashboard,
+        icon: "material-symbols:dashboard-outline-rounded",
         color: "#8B5CF6",
     },
     {
         title: "AI & Machine Learning",
         subTitle: "Intelligent solutions",
-        icon: TbBrain,
+        icon: "fluent:brain-32-regular",
         color: "#EF4444",
     },
 ];
