@@ -16,7 +16,7 @@
     }
 
     .custom-container {
-        @apply bg-gray-100 dark:bg-container-dark-bg;
+        @apply bg-container-light-bg dark:bg-container-dark-bg;
         @apply border-2 border-gray-200 dark:border-gray-800;
     }
 
@@ -51,8 +51,32 @@
         @apply flex items-center gap-1.5 px-3.5 py-2 w-fit text-xs text-white;
     }
 
+    .prj-container-btns {
+        @apply w-full rounded-lg px-2 py-3 flex items-center justify-center gap-3;
+        @apply transition-colors duration-200;
+    }
+
+    .github-btn {
+        @apply border border-gray-300 dark:border-gray-700;
+
+        @apply active:bg-gray-100 dark:active:bg-gray-900;
+        @apply lg:hover:bg-gray-100 lg:dark:hover:bg-gray-900;
+
+        @apply text-gray-700 active:text-black lg:hover:text-black;
+        @apply dark:text-gray-300 dark:active:text-white lg:dark:hover:text-white;
+
+        @apply prj-container-btns;
+    }
+
+    .view-details-btn {
+        @apply bg-blue-600 active:bg-blue-700 lg:hover:bg-blue-700;
+        @apply text-white;
+        @apply prj-container-btns;
+    }
+
     .grids-lg {
-        background-image: linear-gradient(
+        background-image:
+            linear-gradient(
                 to right,
                 rgba(80, 80, 80, 0.07) 1px,
                 transparent 1px
@@ -66,7 +90,8 @@
     }
 
     .dark .grids-lg {
-        background-image: linear-gradient(
+        background-image:
+            linear-gradient(
                 to right,
                 rgba(180, 180, 180, 0.07) 1px,
                 transparent 1px
@@ -79,7 +104,8 @@
     }
 
     .grids-md {
-        background-image: linear-gradient(
+        background-image:
+            linear-gradient(
                 to right,
                 rgba(130, 130, 130, 0.07) 1px,
                 transparent 1px
@@ -93,7 +119,8 @@
     }
 
     .dark .grids-md {
-        background-image: linear-gradient(
+        background-image:
+            linear-gradient(
                 to right,
                 rgba(100, 100, 100, 0.07) 1px,
                 transparent 1px

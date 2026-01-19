@@ -1,5 +1,6 @@
 import Section from "../../components/common/Section";
 import SectionHeader from "../../components/common/SectionHeader";
+import ProjectsContainer from "./components/ProjectsContainer";
 
 export default function Projects() {
     return (
@@ -10,13 +11,7 @@ export default function Projects() {
                     subTitle="A selection of projects I've worked on, showcasing my skills in development."
                 />
 
-                <div>
-                    <div className="flex flex-col items-center justify-center ">
-                        <p className="mt-4 text-gray-500 text-lg md:text-xl">
-                            Projects section is under construction.
-                        </p>
-                    </div>
-                </div>
+                <ProjectsContainer />
             </div>
         </Section>
     );

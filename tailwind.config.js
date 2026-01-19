@@ -14,7 +14,7 @@ export default {
                 "sec-light-bg": "#f1f3f9",
                 "prim-dark-bg": "#050610",
                 "sec-dark-bg": "#0a0b16",
-                "container-light-bg": "#f5f7fa",
+                "container-light-bg": "#f8f9fa",
                 "container-dark-bg": "#0d101b",
             },
         },

@@ -19,7 +19,7 @@ export default function CertificateModal({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
                 onClick={() => setShowCertificate(false)}
                 className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4"
             >

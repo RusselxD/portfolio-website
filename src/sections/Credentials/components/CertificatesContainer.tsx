@@ -97,8 +97,8 @@ export default function CertificatesContainer() {
     const certifications: Certification[] = certificates;
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-3 xl:gap-7">
-            {certifications.map((cert) => {
-                return <CertificateCard certificate={cert} key={cert.title} />;
+            {certifications.map((cert, i) => {
+                return <CertificateCard certificate={cert} key={i} />;
             })}
         </div>
     );

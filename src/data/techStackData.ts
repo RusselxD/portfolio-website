@@ -1,4 +1,4 @@
-export interface Technology {
+export interface TechStack {
     name: string;
     icon: string;
     color?: string;
@@ -6,7 +6,7 @@ export interface Technology {
 
 export interface SkillGroup {
     title: string;
-    technologies: Technology[];
+    technologies: TechStack[];
 }
 
 export const techStackData: SkillGroup[] = [
@@ -121,6 +121,10 @@ export const techStackData: SkillGroup[] = [
                 icon: "simple-icons:axios",
             },
             {
+                name: "JWT",
+                icon: "devicon:jwt",
+            },
+            {
                 name: "Tailwind CSS",
                 icon: "logos:tailwindcss-icon",
             },
@@ -141,7 +145,7 @@ export const techStackData: SkillGroup[] = [
             },
             {
                 name: "Github",
-                icon: "logos:github-icon",
+                icon: "akar-icons:github-fill",
             },
             {
                 name: "VS Code",
