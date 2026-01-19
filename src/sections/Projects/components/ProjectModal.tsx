@@ -27,6 +27,7 @@ export default function ProjectModal({
                 onClick={(e) => e.stopPropagation()}
             >
                 Wait Lang
+                <p>{project.title}</p>
             </div>
         </motion.div>
     );
