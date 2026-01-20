@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
 import { useState, type ReactNode } from "react";
+import resume from "../../../assets/resume.pdf";
 
 interface ContactCardProps {
     icon: string;
@@ -72,7 +73,7 @@ const EmailCard = () => {
 const ResumeCard = () => {
     const handleDownload = () => {
         const link = document.createElement("a");
-        link.href = "/src/assets/resume.pdf";
+        link.href = resume;
         link.download = "Russel_Cabigquez_Resume.pdf";
         document.body.appendChild(link);
         link.click();
