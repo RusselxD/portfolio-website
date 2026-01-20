@@ -14,7 +14,7 @@ const ViewProfileLink = ({ url }: { url: string }) => {
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className="py-3 px-6 flex items-center gap-2 bg-gray-200 dark:bg-gray-800 rounded-lg "
+            className="contact-btn"
         >
             <Icon icon="streamline-sharp:link-share-2-remix" />
             <span>View Profile</span>
@@ -37,35 +37,66 @@ const ContactCard = ({ icon, title, detail, children }: ContactCardProps) => {
     );
 };
 
-export default function ContactsContainer() {
+const EmailCard = () => {
     const [copied, setCopied] = useState(false);
 
     const handleCopy = async () => {
         try {
             await navigator.clipboard.writeText("russelcabigquez8@gmail.com");
             setCopied(true);
-            setTimeout(() => setCopied(false), 2000);
+            setTimeout(() => setCopied(false), 1000);
         } catch (e) {
             // fallback or error handling
         }
     };
 
     return (
-        <div className="flex items-center flex-wrap gap-3 md:gap-5 justify-center px-2">
-            <ContactCard
-                icon="formkit:email"
-                title="Email"
-                detail="russelcabigquez8@gmail.com"
-            >
-                <button
-                    onClick={() => handleCopy()}
-                    className="py-3 px-6 flex items-center gap-2 bg-gray-200 dark:bg-gray-800 rounded-lg "
-                >
+        <ContactCard
+            icon="formkit:email"
+            title="Email"
+            detail="russelcabigquez8@gmail.com"
+        >
+            <button onClick={() => handleCopy()} className="contact-btn">
+                {copied ? (
+                    <Icon icon="mingcute:check-fill" />
+                ) : (
                     <Icon icon="tabler:copy" />
+                )}
 
-                    <span>{copied ? "Copied!" : "Copy Email"}</span>
-                </button>
-            </ContactCard>
+                <span>{copied ? "Copied!" : "Copy Email"}</span>
+            </button>
+        </ContactCard>
+    );
+};
+
+const ResumeCard = () => {
+    const handleDownload = () => {
+        const link = document.createElement("a");
+        link.href = "/src/assets/resume.pdf";
+        link.download = "Russel_Cabigquez_Resume.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
+    return (
+        <ContactCard
+            icon="akar-icons:file"
+            title="Download CV"
+            detail="Download PDF"
+        >
+            <button onClick={() => handleDownload()} className="contact-btn">
+                <Icon icon="material-symbols:download" className="w-5 h-5" />
+                <span>Download CV</span>
+            </button>
+        </ContactCard>
+    );
+};
+
+export default function ContactsContainer() {
+    return (
+        <div className="flex items-center flex-wrap gap-3 md:gap-5 justify-center px-2">
+            <EmailCard />
             <ContactCard
                 icon="akar-icons:github-fill"
                 title="GitHub"
@@ -74,12 +105,13 @@ export default function ContactsContainer() {
                 <ViewProfileLink url="https://github.com/RusselxD" />
             </ContactCard>
             <ContactCard
-                icon="logos:facebook"
+                icon="ic:baseline-facebook"
                 title="Facebook"
                 detail="Russel Cabigquez"
             >
                 <ViewProfileLink url="https://www.facebook.com/russel.cbgqz" />
             </ContactCard>
+            <ResumeCard />
         </div>
     );
 }

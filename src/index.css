@@ -74,6 +74,14 @@
         @apply prj-container-btns;
     }
 
+    .contact-btn {
+        @apply py-3 px-6 flex items-center gap-2 rounded-lg;
+        @apply bg-gray-200 dark:bg-gray-800;
+        @apply active:bg-gray-300 active:dark:hover:bg-gray-700;
+        @apply lg:hover:bg-gray-300 lg:dark:hover:bg-gray-700;
+        @apply transition-colors duration-100;
+    }
+
     .grids-lg {
         background-image:
             linear-gradient(
@@ -142,6 +150,4 @@
         -ms-overflow-style: none;
         scrollbar-width: none;
     }
-
-
 }
