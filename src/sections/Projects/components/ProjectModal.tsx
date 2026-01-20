@@ -100,7 +100,7 @@ export default function ProjectModal({
                     className="w-full object-cover md:h-80"
                 />
                 <div className="p-4 md:p-5 flex flex-col gap-3">
-                    <h2 className="font-black text-sm md:text-base">
+                    <h2 className="font-black md:text-lg">
                         {project.title}
                     </h2>
                     <p className="sec-text text-xs md:text-sm leading-7 md:leading-7">

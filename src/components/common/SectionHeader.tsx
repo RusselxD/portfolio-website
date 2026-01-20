@@ -12,11 +12,15 @@ export default function SectionHeader({ title, subTitle }: SectionHeaderProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="text-center flex flex-col gap-2 xl:gap-5 mb-9 lg:mb-10"
+            className="text-center flex flex-col items-center gap-2 xl:gap-5 mb-9 lg:mb-10 "
         >
-            <h1 className="font-black text-3xl md:text-4xl xl:text-5xl">{title}</h1>
+            <h1 className="font-black text-3xl md:text-4xl xl:text-5xl">
+                {title}
+            </h1>
             {subTitle && (
-                <p className="text-gray-800 dark:text-gray-400 text-sm md:text-base">{subTitle}</p>
+                <p className="text-gray-800 dark:text-gray-400 text-sm md:text-base max-w-[95vw] leading-8">
+                    {subTitle}
+                </p>
             )}
         </motion.div>
     );

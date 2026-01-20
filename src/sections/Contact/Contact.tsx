@@ -1,5 +1,6 @@
 import Section from "../../components/common/Section";
 import SectionHeader from "../../components/common/SectionHeader";
+import ContactsContainer from "./components/ContactsContainer";
 
 export default function Contact() {
     return (
@@ -9,14 +10,7 @@ export default function Contact() {
                     title="Let's Connect"
                     subTitle="I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision."
                 />
-
-                <div>
-                    <div className="flex flex-col items-center justify-center ">
-                        <p className="mt-4 text-gray-500 text-lg md:text-xl">
-                            Contacts section is under construction.
-                        </p>
-                    </div>
-                </div>
+                <ContactsContainer />
             </div>
         </Section>
     );

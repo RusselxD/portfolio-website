@@ -10,6 +10,7 @@ export default function GalleryCarousel({ project }: { project: Project }) {
     const [translateX, setTranslateX] = useState(0);
 
     const containerRef = useRef<HTMLDivElement>(null);
+    const firstImageRef = useRef<HTMLImageElement>(null);
     const lastImageRef = useRef<HTMLImageElement>(null);
 
     const adjustSpeed = (isHovering: boolean) => {
@@ -34,7 +35,7 @@ export default function GalleryCarousel({ project }: { project: Project }) {
                 });
             },
             {
-                threshold: 0.3,
+                threshold: 0.1, // show when 10% of the carousel is visible
             },
         );
 
@@ -79,12 +80,35 @@ export default function GalleryCarousel({ project }: { project: Project }) {
             },
             {
                 threshold: 1,
-                root: containerRef.current, // Changed from null to containerRef
+                root: containerRef.current,
             },
         );
 
         if (lastImageRef.current) {
             observer.observe(lastImageRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, [isForward]);
+
+    // Observe when the first image is fully visible
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.intersectionRatio === 1 && !isForward) {
+                        setIsForward(true);
+                    }
+                });
+            },
+            {
+                threshold: 1,
+                root: containerRef.current,
+            },
+        );
+
+        if (firstImageRef.current) {
+            observer.observe(firstImageRef.current);
         }
 
         return () => observer.disconnect();
@@ -113,9 +137,11 @@ export default function GalleryCarousel({ project }: { project: Project }) {
                                 key={i}
                                 className="h-40 md:h-52 rounded-md"
                                 ref={
-                                    project.imgUrls.length - 1 === i
-                                        ? lastImageRef
-                                        : null
+                                    i === 0
+                                        ? firstImageRef
+                                        : project.imgUrls.length - 1 === i
+                                          ? lastImageRef
+                                          : null
                                 }
                             />
                         );
