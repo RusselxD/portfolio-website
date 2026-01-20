@@ -51,10 +51,10 @@ export const getProjectById = (id: number): Project => {
 export const projectsData: Project[] = [
     {
         id: 1,
-        title: "Drake Sugary Treat's Website",
-        desc: "A full-stack menu management and ordering platform that enables administrators to configure drinks, pricing, and categories while providing customers with a responsive ordering interface and real-time cart functionality.",
+        title: "Drake Sugary Treats' Website",
+        desc: "A MERN-based menu and order management platform for small food and beverage businesses, enabling flexible menu configuration and a real-time, mobile-friendly customer ordering experience.",
         overview:
-            "This system is a dynamic menu and order management platform built with MERN (MongoDB, Express, React, Node.js) stack, designed specifically for small food and beverage businesses needing centralized control of products and customer ordering interactions. The admin panel includes a fully modular menu editor with support for multi-size pricing, nested price groups, dynamic flavor sets, conditional availability toggles, and inline editing with optimistic UI updates. Each menu item supports multiple size tiers (e.g., Small/Large), flavor lists, seasonal availability, and grouped pricing rules that can be added, removed, or reordered on demand. Admin actions trigger Axios-based REST calls to the backend, which performs validation and persists structured product configurations into the database. On the customer-facing side, the interactive ordering UI supports quantity selection, live price computation, cart aggregation, and a floating cart preview synced across page sections. The order summary modal consolidates items into a formatted list with computed totals and provides a one-click “Copy Order” function that serializes the cart into a shareable text format for messaging platforms. The interface is built with Tailwind CSS for performance and consistent styling, supporting smooth transitions, instant re-rendering, and mobile-first usability.",
+            "A dynamic menu and order management platform built with the MERN stack for small food and beverage businesses. It provides an admin panel with a modular menu editor supporting multi-size pricing, flavor sets, grouped pricing rules, availability toggles, and inline editing with optimistic updates. The backend validates and stores structured product data via RESTful APIs, while the customer interface delivers real-time price calculation, cart aggregation, a synced floating cart, and a shareable order summary. The UI is built with Tailwind CSS for fast, responsive, and mobile-first interactions.",
         techStack: [
             {
                 name: "React",
@@ -101,9 +101,9 @@ export const projectsData: Project[] = [
     {
         id: 2,
         title: "Survey Management with Data Analysis",
-        desc: "A full-stack enterprise survey management platform that enables administrators to create, distribute, and analyze surveys with advanced analytics, role-based access control, and reporting capabilities.",
+        desc: "An enterprise-grade survey platform that enables secure survey creation, large-scale response handling, and advanced analytics through a dual admin and respondent interface.",
         overview:
-            "This system is an enterprise-grade web application built with React/TypeScript frontend, ASP.NET Core backend, and SQL Server database, delivering a scalable solution for survey management and analytics. The platform implements JWT-based authentication and RBAC across a dual-interface architecture: an administrative portal and public respondent interface. Administrators leverage a modular survey builder with 10+ question types, featuring validation and conditional logic. The core multi-dimensional analytics engine provides Chart.js-powered visualizations tracking response trends, completion time distributions, engagement funnels, geographical heatmaps, question type usage, scatter plot for survey length and completion rate correlation, and survey performance rankings. Optimized backend queries with pagination and data aggregation efficiently handle millions of response records. RESTful API integration via Axios connects the frontend to robust ASP.NET Core services for efficient end-to-end communication. The system features client-side QR code generation with backend persistence, and data exports via jsPDF (PDF reports) and SheetJS (Excel dumps). The application uses React Router v7 for protected routing and Tailwind CSS with daisyUI for intuitive and user-friendly interface.",
+            "An enterprise-grade survey platform built with React/TypeScript, ASP.NET Core, and SQL Server, focused on scalable survey creation and analytics. It implements JWT-based authentication and RBAC across an admin portal and a public respondent interface. Administrators design surveys using a modular builder with 10+ question types, validation, and conditional logic. A multi-dimensional analytics engine provides Chart.js visualizations for trends, engagement, completion metrics, and survey performance, with backend optimizations for handling millions of responses, QR code access, and PDF/Excel exports.",
         techStack: [
             {
                 name: "React",
@@ -114,7 +114,7 @@ export const projectsData: Project[] = [
                 icon: "logos:typescript-icon",
             },
             {
-                name: "ASP.NET Core",
+                name: "ASP.NET",
                 icon: "logos:dotnet",
             },
             {
@@ -153,9 +153,9 @@ export const projectsData: Project[] = [
     {
         id: 3,
         title: "PLV Cloud",
-        desc: "A full-stack educational cloud storage platform that enables students to store, organize, share, and collaborate on academic files with role-based access control, in-app notifications, and comprehensive activity tracking.",
+        desc: "A production-ready Laravel/Livewire file-sharing platform for Pamantasan ng Lungsod ng Valenzuela that delivers secure, role-based cloud storage, collaboration, and scalable deployment.",
         overview:
-            "This system is a production-ready web application built with Laravel/Livewire and PostgreSQL, delivering a comprehensive cloud storage solution optimized for Pamantasan ng Lungsod ng Valenzuela. The platform implements Laravel's authentication with Brevo API email verification, and role-based access control. Users interact with a hierarchical folder structure supporting unlimited nesting, file uploads, and bulk operations for files stored on Cloudinary's CDN with automatic optimization. The core collaboration engine enables public folder sharing with automatic contributor assignment—users uploading to public folders gain contributor status—alongside private folders with granular permissions. Real-time search filters content across files, folders, courses, dates, and types through optimized queries. Comprehensive activity logging tracks all operations (uploads, downloads, shares, deletions) with user dashboards. An integrated notification center delivers real-time alerts for shares, access requests, and announcements. Course management links files to academic courses, while favorites and recent files provide quick access. Queue-based job processing handles asynchronous tasks via Supervisor. The application uses Vite 7, Tailwind CSS 3 with Alpine.js for reactive components, and Docker containerization with Nginx for scalable Render.com deployment with automated CI/CD.",
+            "A production-ready file-sharing web application built with Laravel/Livewire and PostgreSQL, designed for Pamantasan ng Lungsod ng Valenzuela. It features secure authentication with role-based access control, hierarchical folder management with unlimited nesting, and Cloudinary-backed storage with automatic optimization. The platform supports public and private collaboration with granular permissions, real-time search, detailed activity logging, notifications, and course-linked file organization. Background jobs are handled through queue-based processing, with deployment via Docker, Nginx, Vite, and Tailwind CSS with Alpine.js for scalable CI/CD.",
         techStack: [
             {
                 name: "Laravel",
@@ -185,7 +185,8 @@ export const projectsData: Project[] = [
             "Real-time collaboration",
             "Comprehensive activity logging",
             "In-app notification center",
-            "Responsive PWA design",
+            "Responsive interface",
+            "Compatible across devices",
             "Docker production deployment",
             "Admin dashboard interface",
             "Content reporting system",

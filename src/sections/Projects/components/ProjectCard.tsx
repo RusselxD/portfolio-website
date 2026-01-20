@@ -2,6 +2,7 @@ import { Icon } from "@iconify/react";
 import type { Project } from "../../../data/projects";
 import { useState } from "react";
 import ProjectModal from "./ProjectModal";
+import { motion } from "framer-motion";
 
 export default function ProjectCard({ project }: { project: Project }) {
     const [openModal, setOpenModal] = useState(false);
@@ -15,15 +16,21 @@ export default function ProjectCard({ project }: { project: Project }) {
     };
 
     return (
-        <div className="rounded-xl w-full overflow-hidden custom-container">
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="rounded-xl w-full overflow-hidden custom-container"
+        >
             <img
                 src={project.imgUrls[0]}
                 alt={project.title}
                 className="object-cover w-full"
             />
-            <div className="p-5 flex flex-col gap-2">
+            <div className="p-4 md:p-5 flex flex-col gap-2">
                 <h3 className="font-bold md:text-lg">{project.title}</h3>
-                <p className="text-[0.800rem] md:text-sm sec-text !leading-7">
+                <p className="text-[0.800rem] md:text-sm sec-text leading-6 md:leading-7">
                     {project.desc}
                 </p>
                 <div className="flex items-center gap-2">
@@ -78,6 +85,6 @@ export default function ProjectCard({ project }: { project: Project }) {
                     setOpenModal={setOpenModal}
                 />
             )}
-        </div>
+        </motion.div>
     );
 }

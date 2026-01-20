@@ -21,7 +21,7 @@ export default function CertificateModal({
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
                 onClick={() => setShowCertificate(false)}
-                className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+                className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4"
             >
                 <div
                     className="relative overflow-hidden bg-white dark:bg-gray-900 rounded-md shadow-2xl"

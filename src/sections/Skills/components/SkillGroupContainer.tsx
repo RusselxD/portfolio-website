@@ -1,13 +1,13 @@
-import type { SkillGroup, Technology } from "../../../data/techStackData";
+import type { SkillGroup, TechStack } from "../../../data/techStackData";
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 
-const SkillCapsule = ({ tech }: { tech: Technology }) => {
+const SkillCapsule = ({ tech }: { tech: TechStack }) => {
     return (
         <div className="flex items-center gap-2 rounded-full py-2 px-3 bg-gray-200 dark:bg-gray-800">
             <Icon
                 icon={tech.icon}
-                className="md:text-lg"
+                className="w-4 h-4"
                 style={{ color: tech.color }}
             />
             <p className="text-[0.800rem] md:text-sm font-medium">
