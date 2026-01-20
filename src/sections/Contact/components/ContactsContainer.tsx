@@ -24,8 +24,8 @@ const ViewProfileLink = ({ url }: { url: string }) => {
 
 const ContactCard = ({ icon, title, detail, children }: ContactCardProps) => {
     return (
-        <div className="custom-container flex flex-col items-center gap-2 py-5 rounded-xl text-[0.8rem] md:text-sm w-48 md:w-52 overflow-hidden">
-            <div className="rounded-lg p-3 bg-gray-200 dark:bg-gray-800">
+        <div className="custom-container bg-gray-100 flex flex-col items-center gap-2 py-5 rounded-xl text-[0.8rem] md:text-sm w-48 md:w-52 overflow-hidden">
+            <div className="rounded-lg p-3 bg-slate-200 dark:bg-gray-800">
                 <Icon icon={icon} className="w-8 h-8" />
             </div>
             <h3 className="font-bold text-base">{title}</h3>
