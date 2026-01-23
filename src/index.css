@@ -52,8 +52,9 @@
     }
 
     .prj-container-btns {
-        @apply w-full rounded-lg px-2 py-3 flex items-center justify-center gap-3;
+        @apply w-full rounded-lg py-3 flex items-center justify-center gap-3;
         @apply transition-colors duration-200;
+        @apply text-xs sm:text-sm;
     }
 
     .github-btn {
