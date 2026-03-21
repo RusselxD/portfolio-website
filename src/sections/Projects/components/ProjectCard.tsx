@@ -21,38 +21,37 @@ export default function ProjectCard({ project }: { project: Project }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="rounded-xl w-full overflow-hidden custom-container"
+            className="rounded-lg w-full overflow-hidden glass-panel glass-panel-hover"
         >
             <img
                 src={project.imgUrls[0]}
                 alt={project.title}
                 className="object-cover w-full"
             />
-            <div className="p-4 md:p-5 flex flex-col gap-2">
-                <h3 className="font-bold md:text-lg">{project.title}</h3>
-                <p className="text-[0.800rem] md:text-sm sec-text leading-6 md:leading-7">
+            <div className="p-5 md:p-6 flex flex-col gap-3">
+                <h3 className="font-bold text-on-surface md:text-lg">
+                    {project.title}
+                </h3>
+                <p className="text-sm text-on-surface-variant leading-relaxed">
                     {project.desc}
                 </p>
                 <div className="flex items-center gap-2">
-                    {project.techStack.map((tech) => {
-                        return (
-                            <div
-                                key={tech.name}
-                                className="p-2 bg-gray-200 dark:bg-gray-800 rounded-full"
-                            >
-                                <Icon
-                                    icon={tech.icon}
-                                    key={tech.name}
-                                    width={18}
-                                    height={18}
-                                    style={{ color: tech.color }}
-                                />
-                            </div>
-                        );
-                    })}
+                    {project.techStack.map((tech) => (
+                        <div
+                            key={tech.name}
+                            className="p-2 bg-surface-container-low rounded-full"
+                        >
+                            <Icon
+                                icon={tech.icon}
+                                width={18}
+                                height={18}
+                                style={{ color: tech.color }}
+                            />
+                        </div>
+                    ))}
                 </div>
 
-                <div className="flex items-center gap-4 text-sm mt-2">
+                <div className="flex items-center gap-3 mt-1">
                     <button
                         className="github-btn"
                         onClick={() => handleOpenLink(project.gitHubUrl)}

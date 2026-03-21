@@ -18,9 +18,9 @@ const SectionNavigator = ({
                     .getElementById(elementId)
                     ?.scrollIntoView({ behavior: "smooth" })
             }
-            className={`py-2.5 pr-10 pl-3 md:py-2 md:px-4 text-left md:text-center md:rounded-lg transition-colors ${
+            className={`py-2.5 pr-10 pl-3 md:py-2 md:px-4 text-left md:text-center md:rounded-[1rem] transition-colors duration-200 font-semibold tracking-tight ${
                 isActive
-                    ? "text-primary bg-primary/20 font-bold"
+                    ? "text-primary border-b-2 border-primary md:border-none md:bg-primary/10"
                     : "nav-text-inactive"
             }`}
         >

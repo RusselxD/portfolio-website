@@ -19,7 +19,9 @@ export const Container = ({
 }) => {
     return (
         <>
-            <h2 className="font-semibold text-sm md:text-base">{title}</h2>
+            <h2 className="font-semibold text-on-surface text-sm md:text-base">
+                {title}
+            </h2>
             {children}
         </>
     );
@@ -28,18 +30,16 @@ export const Container = ({
 const KeyFeaturesContainer = ({ project }: { project: Project }) => {
     return (
         <Container title="Key Features">
-            <div className="sec-text columns-2 gap-2 space-y-2 text-xs md:text-sm">
-                {project.keyFeatures.map((feat, i) => {
-                    return (
-                        <div className="flex items-center gap-2" key={i}>
-                            <Icon
-                                icon="iconamoon:check-bold"
-                                className="text-emerald-500"
-                            />
-                            <span>{feat}</span>
-                        </div>
-                    );
-                })}
+            <div className="text-on-surface-variant columns-2 gap-2 space-y-2 text-xs md:text-sm">
+                {project.keyFeatures.map((feat, i) => (
+                    <div className="flex items-center gap-2" key={i}>
+                        <Icon
+                            icon="iconamoon:check-bold"
+                            className="text-emerald-500"
+                        />
+                        <span>{feat}</span>
+                    </div>
+                ))}
             </div>
         </Container>
     );
@@ -49,17 +49,17 @@ const TechStackContainer = ({ project }: { project: Project }) => {
     return (
         <Container title="Tech Stack">
             <div className="flex items-center gap-2 text-xs md:text-sm flex-wrap">
-                {project.techStack.map((tech, i) => {
-                    return (
-                        <div
-                            key={i}
-                            className="flex items-center gap-1 rounded-full px-3 py-2 bg-gray-200 dark:bg-gray-800"
-                        >
-                            <Icon icon={tech.icon} className="w-4 h-4" />
-                            <span>{tech.name}</span>
-                        </div>
-                    );
-                })}
+                {project.techStack.map((tech, i) => (
+                    <div
+                        key={i}
+                        className="flex items-center gap-1 rounded-full px-3 py-2 bg-surface-container-low"
+                    >
+                        <Icon icon={tech.icon} className="w-4 h-4" />
+                        <span className="text-on-surface-variant">
+                            {tech.name}
+                        </span>
+                    </div>
+                ))}
             </div>
         </Container>
     );
@@ -72,10 +72,7 @@ export default function ProjectModal({
     const project: Project = getProjectById(projectIdx);
 
     useEffect(() => {
-        // Disable scroll on mount
         document.body.style.overflow = "hidden";
-
-        // Re-enable scroll on unmount
         return () => {
             document.body.style.overflow = "unset";
         };
@@ -88,10 +85,10 @@ export default function ProjectModal({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
             onClick={() => setOpenModal(false)}
-            className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-2 "
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-2"
         >
             <div
-                className="relative bg-white dark:bg-gray-900 rounded-md shadow-2xl md:w-4/5 lg:w-4/5 xl:w-3/5 overflow-auto max-h-[70dvh] lg:max-h-[85dvh] hide-scrollbar"
+                className="relative bg-white rounded-md shadow-[0_24px_48px_-12px_rgba(74,64,224,0.15)] md:w-4/5 lg:w-4/5 xl:w-3/5 overflow-auto max-h-[70dvh] lg:max-h-[85dvh] hide-scrollbar"
                 onClick={(e) => e.stopPropagation()}
             >
                 <img
@@ -99,11 +96,11 @@ export default function ProjectModal({
                     alt={project.title}
                     className="w-full object-cover md:h-80"
                 />
-                <div className="p-4 md:p-5 flex flex-col gap-3">
-                    <h2 className="font-black md:text-lg">
+                <div className="p-5 md:p-6 flex flex-col gap-4">
+                    <h2 className="font-bold text-on-surface md:text-lg">
                         {project.title}
                     </h2>
-                    <p className="sec-text text-xs md:text-sm leading-7 md:leading-7">
+                    <p className="text-on-surface-variant text-xs md:text-sm !leading-7">
                         {project.overview}
                     </p>
 

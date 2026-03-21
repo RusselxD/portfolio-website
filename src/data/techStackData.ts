@@ -125,6 +125,10 @@ export const techStackData: SkillGroup[] = [
                 icon: "devicon:jwt",
             },
             {
+                name: "Spring Boot",
+                icon: "logos:spring-icon",
+            },
+            {
                 name: "Tailwind CSS",
                 icon: "logos:tailwindcss-icon",
             },

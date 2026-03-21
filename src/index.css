@@ -1,4 +1,4 @@
-@import "@fontsource/inter";
+@import "@fontsource-variable/plus-jakarta-sans";
 
 @tailwind base;
 @tailwind components;
@@ -6,7 +6,7 @@
 
 @layer base {
     body {
-        @apply text-black dark:text-white;
+        @apply text-on-surface antialiased;
     }
 }
 
@@ -15,9 +15,55 @@
         @apply py-20 md:py-[5.5rem] lg:py-28;
     }
 
-    .custom-container {
-        @apply bg-container-light-bg dark:bg-container-dark-bg;
-        @apply border-2 border-gray-200 dark:border-gray-800;
+    .glass-panel {
+        background: #ffffff;
+        border: 2px solid transparent;
+        background-clip: padding-box;
+        box-shadow:
+            0 8px 32px rgba(74, 64, 224, 0.10),
+            0 2px 8px rgba(74, 64, 224, 0.06);
+        position: relative;
+    }
+
+    .glass-panel::before {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        border-radius: inherit;
+        padding: 2px;
+        background: linear-gradient(135deg, #9795ff, #34d399);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+    }
+
+    .glass-panel-hover {
+        @apply transition-shadow duration-300;
+    }
+    .glass-panel-hover:hover {
+        box-shadow:
+            0 12px 40px rgba(74, 64, 224, 0.14),
+            0 4px 12px rgba(74, 64, 224, 0.08),
+            inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
+    }
+
+    .luminous-gradient {
+        background: linear-gradient(135deg, #6558f5 0%, #8b6cf7 35%, #34d399 100%);
+    }
+
+    .dot-pattern {
+        background-image: radial-gradient(rgba(74, 64, 224, 0.25) 1.5px, transparent 1.5px);
+        background-size: 32px 32px;
+    }
+
+    .luminous-shadow {
+        box-shadow: 0 24px 48px -12px rgba(74, 64, 224, 0.08);
+    }
+
+    .ghost-border {
+        box-shadow: inset 0 0 0 1px rgba(171, 173, 175, 0.15);
     }
 
     .aurora-sphere-sm {
@@ -33,14 +79,14 @@
     }
 
     .nav-text-inactive {
-        @apply text-gray-500;
+        @apply text-on-surface-variant;
         @apply active:font-semibold lg:hover:font-semibold;
-        @apply active:hover:text-gray-900 lg:hover:text-gray-900 active:dark:text-white lg:hover:dark:text-white;
-        @apply active:bg-gray-200 lg:hover:bg-gray-200 active:dark:bg-gray-800 lg:hover:dark:bg-gray-800;
+        @apply active:text-primary lg:hover:text-primary;
+        @apply transition-colors duration-200;
     }
 
     .sec-text {
-        @apply text-gray-700 dark:text-gray-300;
+        @apply text-on-surface-variant;
     }
 
     .cert-icon {
@@ -52,35 +98,34 @@
     }
 
     .prj-container-btns {
-        @apply w-full rounded-lg py-3 flex items-center justify-center gap-3;
-        @apply transition-colors duration-200;
+        @apply w-full rounded-[1.5rem] py-3 flex items-center justify-center gap-3;
+        @apply transition-all duration-200;
         @apply text-xs sm:text-sm;
     }
 
     .github-btn {
-        @apply border border-gray-300 dark:border-gray-700;
-
-        @apply active:bg-gray-100 dark:active:bg-gray-900;
-        @apply lg:hover:bg-gray-100 lg:dark:hover:bg-gray-900;
-
-        @apply text-gray-700 active:text-black lg:hover:text-black;
-        @apply dark:text-gray-300 dark:active:text-white lg:dark:hover:text-white;
-
-        @apply prj-container-btns;
+        @apply bg-white/40 backdrop-blur-[10px];
+        @apply active:bg-white/70;
+        @apply lg:hover:bg-white/70;
+        @apply text-on-surface-variant active:text-on-surface lg:hover:text-on-surface;
+        @apply prj-container-btns ghost-border;
     }
 
     .view-details-btn {
-        @apply bg-blue-600 active:bg-blue-700 lg:hover:bg-blue-700;
-        @apply text-white;
+        @apply text-on-primary;
         @apply prj-container-btns;
+        background: linear-gradient(135deg, #4a40e0, #9795ff);
+    }
+    .view-details-btn:hover {
+        opacity: 0.9;
     }
 
     .contact-btn {
-        @apply py-3 px-6 flex items-center gap-2 rounded-lg;
-        @apply bg-gray-200 dark:bg-gray-800;
-        @apply active:bg-gray-300 active:dark:hover:bg-gray-700;
-        @apply lg:hover:bg-gray-300 lg:dark:hover:bg-gray-700;
-        @apply transition-colors duration-100;
+        @apply py-3 px-6 flex items-center gap-2 rounded-[1.5rem];
+        @apply bg-white/40 backdrop-blur-[10px] ghost-border;
+        @apply active:bg-white/70;
+        @apply lg:hover:bg-white/70;
+        @apply transition-all duration-200;
     }
 
     .grids-lg {
@@ -98,20 +143,6 @@
         background-size: 70px 70px;
     }
 
-    .dark .grids-lg {
-        background-image:
-            linear-gradient(
-                to right,
-                rgba(180, 180, 180, 0.07) 1px,
-                transparent 1px
-            ),
-            linear-gradient(
-                to bottom,
-                rgba(180, 180, 180, 0.07) 1px,
-                transparent 1px
-            );
-    }
-
     .grids-md {
         background-image:
             linear-gradient(
@@ -127,18 +158,8 @@
         background-size: 50px 50px;
     }
 
-    .dark .grids-md {
-        background-image:
-            linear-gradient(
-                to right,
-                rgba(100, 100, 100, 0.07) 1px,
-                transparent 1px
-            ),
-            linear-gradient(
-                to bottom,
-                rgba(100, 100, 100, 0.07) 1px,
-                transparent 1px
-            );
+    .custom-container {
+        @apply glass-panel rounded-lg;
     }
 }
 

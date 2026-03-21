@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import DarkModeToggle from "./components/DarkModeToggle";
 import SectionNavs from "./components/SectionNavs";
 import { Icon } from "@iconify/react";
 
@@ -19,7 +18,6 @@ export default function Navbar() {
             }, 150);
         };
 
-        // Check initial scroll position
         const scrolled = window.scrollY > 10;
         setIsScrolled(scrolled);
 
@@ -39,22 +37,20 @@ export default function Navbar() {
                     aria-hidden="true"
                 />
             )}
-            {/* Backdrop filter for when mobile menu is open */}
 
             <nav
-                className={`fixed top-0 left-0 right-0 z-50 h-12 md:h-14 
-                bg-prim-light-bg/60 dark:bg-prim-dark-bg/60
-                backdrop-blur-sm transition-all border-b ${
+                className={`fixed top-0 left-0 right-0 z-50 h-14 md:h-16
+                bg-white/60 backdrop-blur-xl transition-all ${
                     isScrolled
-                        ? "border-gray-300 dark:border-gray-800"
-                        : "border-transparent"
+                        ? "shadow-[0_8px_32px_0_rgba(74,64,224,0.08)]"
+                        : ""
                 }`}
             >
-                {/* Nav Bar for Mobile*/}
-                <div className="flex items-center h-full justify-between md:hidden px-6 w-full mx-auto relative">
+                {/* Mobile */}
+                <div className="flex items-center h-full justify-end md:hidden px-6 w-full mx-auto relative">
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className="text-2xl cursor-pointer"
+                        className="text-2xl cursor-pointer text-on-surface-variant"
                         aria-label="Toggle mobile menu"
                     >
                         {isMobileMenuOpen ? (
@@ -63,24 +59,20 @@ export default function Navbar() {
                             <Icon icon="pajamas:hamburger" />
                         )}
                     </button>
-                    <DarkModeToggle />
 
-                    {/* Mobile Menu Dropdown */}
                     {isMobileMenuOpen && (
                         <div
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="absolute custom-container border-none rounded-md bg-gray-100 overflow-hidden w-fit top-full left-3 mt-1"
+                            className="absolute glass-panel rounded-[1rem] overflow-hidden w-fit top-full right-3 mt-2"
                         >
                             <SectionNavs />
                         </div>
                     )}
                 </div>
 
-                {/* Nav Bar for Desktop */}
-                <div className="hidden md:flex h-full items-center justify-between px-6 w-full mx-auto ">
-                    <div></div>
+                {/* Desktop */}
+                <div className="hidden md:flex h-full items-center justify-center px-8 w-full mx-auto">
                     <SectionNavs />
-                    <DarkModeToggle />
                 </div>
             </nav>
         </>

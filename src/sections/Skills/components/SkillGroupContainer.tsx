@@ -4,13 +4,13 @@ import { Icon } from "@iconify/react";
 
 const SkillCapsule = ({ tech }: { tech: TechStack }) => {
     return (
-        <div className="flex items-center gap-2 rounded-full py-2 px-3 bg-gray-200 dark:bg-gray-800">
+        <div className="flex items-center gap-2 rounded-full py-2 px-3 bg-surface-container-low">
             <Icon
                 icon={tech.icon}
                 className="w-4 h-4"
                 style={{ color: tech.color }}
             />
-            <p className="text-[0.800rem] md:text-sm font-medium">
+            <p className="text-[0.800rem] md:text-sm font-medium text-on-surface">
                 {tech.name}
             </p>
         </div>
@@ -28,14 +28,16 @@ export default function SkillGroupContainer({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="p-4 xl:p-5 rounded-lg custom-container break-inside-avoid mb-3 "
+            className="p-5 xl:p-6 rounded-[0.75rem] glass-panel break-inside-avoid mb-4"
         >
-            <p className="lg:text-lg font-semibold">{skillGroup.title}</p>
+            <p className="lg:text-lg font-semibold text-on-surface">
+                {skillGroup.title}
+            </p>
 
             <div className="flex flex-wrap gap-2 mt-3">
-                {skillGroup.technologies.map((tech) => {
-                    return <SkillCapsule tech={tech} key={tech.name} />;
-                })}
+                {skillGroup.technologies.map((tech) => (
+                    <SkillCapsule tech={tech} key={tech.name} />
+                ))}
             </div>
         </motion.div>
     );

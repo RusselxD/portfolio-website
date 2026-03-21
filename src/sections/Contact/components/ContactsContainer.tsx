@@ -1,76 +1,55 @@
 import { Icon } from "@iconify/react";
-import { useState, type ReactNode } from "react";
+import { useState } from "react";
 import resume from "../../../assets/resume.pdf";
+import { motion } from "framer-motion";
 
-interface ContactCardProps {
+const ContactItem = ({
+    icon,
+    label,
+    value,
+    onClick,
+    index,
+}: {
     icon: string;
-    title: string;
-    detail: string;
-    children: ReactNode;
-}
-
-const ViewProfileLink = ({ url }: { url: string }) => {
-    return (
-        <a
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="contact-btn"
-        >
-            <Icon icon="streamline-sharp:link-share-2-remix" />
-            <span>View Profile</span>
-        </a>
-    );
-};
-
-const ContactCard = ({ icon, title, detail, children }: ContactCardProps) => {
-    return (
-        <div className="custom-container bg-gray-100 flex flex-col items-center gap-2 py-5 rounded-xl text-[0.8rem] md:text-sm w-48 md:w-52 overflow-hidden">
-            <div className="rounded-lg p-3 bg-slate-200 dark:bg-gray-800">
-                <Icon icon={icon} className="w-8 h-8" />
-            </div>
-            <h3 className="font-bold text-base">{title}</h3>
-            <p className="sec-text mb-1 text-ellipsis max-w-[80%] overflow-hidden whitespace-nowrap">
-                {detail}
-            </p>
-            {children}
+    label: string;
+    value: string;
+    onClick: () => void;
+    index: number;
+}) => (
+    <motion.button
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.08 }}
+        onClick={onClick}
+        className="glass-panel rounded-[0.75rem] p-6 flex items-center gap-5 w-full group text-left transition-shadow duration-300 hover:shadow-[0_12px_40px_rgba(74,64,224,0.12)]"
+    >
+        <div className="w-12 h-12 min-w-[3rem] rounded-full bg-surface-container-low flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+            <Icon
+                icon={icon}
+                className="w-5 h-5 text-on-surface-variant group-hover:text-primary transition-colors"
+            />
         </div>
-    );
-};
+        <div>
+            <p className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-0.5">
+                {label}
+            </p>
+            <p className="font-semibold text-on-surface">{value}</p>
+        </div>
+    </motion.button>
+);
 
-const EmailCard = () => {
+export default function ContactsContainer() {
     const [copied, setCopied] = useState(false);
 
     const handleCopy = async () => {
         try {
             await navigator.clipboard.writeText("russelcabigquez8@gmail.com");
             setCopied(true);
-            setTimeout(() => setCopied(false), 1000);
-        } catch (e) {
-            // fallback or error handling
-        }
+            setTimeout(() => setCopied(false), 1500);
+        } catch (_) {}
     };
 
-    return (
-        <ContactCard
-            icon="formkit:email"
-            title="Email"
-            detail="russelcabigquez8@gmail.com"
-        >
-            <button onClick={() => handleCopy()} className="contact-btn">
-                {copied ? (
-                    <Icon icon="mingcute:check-fill" />
-                ) : (
-                    <Icon icon="tabler:copy" />
-                )}
-
-                <span>{copied ? "Copied!" : "Copy Email"}</span>
-            </button>
-        </ContactCard>
-    );
-};
-
-const ResumeCard = () => {
     const handleDownload = () => {
         const link = document.createElement("a");
         link.href = resume;
@@ -81,38 +60,42 @@ const ResumeCard = () => {
     };
 
     return (
-        <ContactCard
-            icon="akar-icons:file"
-            title="Download CV"
-            detail="Download PDF"
-        >
-            <button onClick={() => handleDownload()} className="contact-btn">
-                <Icon icon="material-symbols:download" className="w-5 h-5" />
-                <span>Download CV</span>
-            </button>
-        </ContactCard>
-    );
-};
-
-export default function ContactsContainer() {
-    return (
-        <div className="flex items-center flex-wrap gap-3 md:gap-5 justify-center px-2">
-            <EmailCard />
-            <ContactCard
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <ContactItem
+                icon="mdi:email-outline"
+                label={copied ? "Copied!" : "Email"}
+                value="russelcabigquez8@gmail.com"
+                onClick={handleCopy}
+                index={0}
+            />
+            <ContactItem
                 icon="akar-icons:github-fill"
-                title="GitHub"
-                detail="@RusselxD"
-            >
-                <ViewProfileLink url="https://github.com/RusselxD" />
-            </ContactCard>
-            <ContactCard
+                label="GitHub"
+                value="@RusselxD"
+                onClick={() =>
+                    window.open("https://github.com/RusselxD", "_blank")
+                }
+                index={1}
+            />
+            <ContactItem
                 icon="ic:baseline-facebook"
-                title="Facebook"
-                detail="Russel Cabigquez"
-            >
-                <ViewProfileLink url="https://www.facebook.com/russel.cbgqz" />
-            </ContactCard>
-            <ResumeCard />
+                label="Facebook"
+                value="Russel Cabigquez"
+                onClick={() =>
+                    window.open(
+                        "https://www.facebook.com/russel.cbgqz",
+                        "_blank"
+                    )
+                }
+                index={2}
+            />
+            <ContactItem
+                icon="material-symbols:download"
+                label="Resume"
+                value="Download CV"
+                onClick={handleDownload}
+                index={3}
+            />
         </div>
     );
 }

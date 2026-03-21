@@ -1,26 +1,15 @@
 import idPhoto from "../../../assets/id_photo.png";
-import { motion } from "framer-motion";
 
 export default function ImageContainer() {
     return (
-        <div className="w-24 md:w-28 relative">
+        <div className="w-16 h-16 rounded-full overflow-hidden shadow-lg"
+            style={{ boxShadow: "0 0 0 4px #fff, 0 8px 24px -4px rgba(74,64,224,0.15)" }}
+        >
             <img
                 src={idPhoto}
-                alt="ID Photo"
-                className="object-cover rounded-lg z-20 relative"
+                alt="Russel Cabigquez"
+                className="w-full h-full object-cover"
             />
-            <motion.div
-                animate={{ rotate: -15 }}
-                initial={{ rotate: -5 }}
-                transition={{
-                    type: "spring",
-                    stiffness: 100,
-                    duration: 0.05,
-                    repeat: Infinity,
-                    repeatType: "reverse",
-                }}
-                className="absolute z-10 inset-0 bg-gradient-to-r from-[#686eff] to-[#00df9b] rounded-lg"
-            ></motion.div>
         </div>
     );
 }
