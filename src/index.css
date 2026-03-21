@@ -16,7 +16,9 @@
     }
 
     .glass-panel {
-        background: #ffffff;
+        background: rgba(255, 255, 255, 0.65);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
         border: 2px solid transparent;
         background-clip: padding-box;
         box-shadow:
@@ -40,9 +42,10 @@
     }
 
     .glass-panel-hover {
-        @apply transition-shadow duration-300;
+        @apply transition-all duration-300;
     }
     .glass-panel-hover:hover {
+        @apply -translate-y-1.5;
         box-shadow:
             0 12px 40px rgba(74, 64, 224, 0.14),
             0 4px 12px rgba(74, 64, 224, 0.08),
@@ -67,15 +70,17 @@
     }
 
     .aurora-sphere-sm {
-        @apply absolute w-[15rem] h-[15rem] lg:w-[20rem] lg:h-[20rem] rounded-full opacity-15;
+        @apply absolute w-[15rem] h-[15rem] lg:w-[20rem] lg:h-[20rem] rounded-full opacity-15 animate-slow-bob;
     }
 
     .aurora-sphere-md {
-        @apply absolute w-[20rem] h-[20rem] lg:w-[25rem] lg:h-[25rem] rounded-full opacity-15;
+        @apply absolute w-[20rem] h-[20rem] lg:w-[25rem] lg:h-[25rem] rounded-full opacity-15 animate-slow-bob;
+        animation-delay: 2s;
     }
 
     .aurora-sphere-lg {
-        @apply absolute w-[30rem] h-[30rem] lg:w-[35rem] lg:h-[35rem] rounded-full opacity-15;
+        @apply absolute w-[30rem] h-[30rem] lg:w-[35rem] lg:h-[35rem] rounded-full opacity-15 animate-slow-bob;
+        animation-delay: 4s;
     }
 
     .nav-text-inactive {

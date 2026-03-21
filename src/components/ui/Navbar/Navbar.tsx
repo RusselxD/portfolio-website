@@ -40,7 +40,7 @@ export default function Navbar() {
 
             <nav
                 className={`fixed top-0 left-0 right-0 z-50 h-14 md:h-16
-                bg-white/60 backdrop-blur-xl transition-all ${
+                bg-white md:bg-white/60 md:backdrop-blur-xl transition-all ${
                     isScrolled
                         ? "shadow-[0_8px_32px_0_rgba(74,64,224,0.08)]"
                         : ""
@@ -63,7 +63,7 @@ export default function Navbar() {
                     {isMobileMenuOpen && (
                         <div
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="absolute glass-panel rounded-[1rem] overflow-hidden w-fit top-full right-3 mt-2"
+                            className="absolute bg-white shadow-xl border border-surface-container-high rounded-[1rem] overflow-hidden w-fit top-full right-3 mt-2"
                         >
                             <SectionNavs />
                         </div>

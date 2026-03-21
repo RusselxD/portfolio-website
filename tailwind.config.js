@@ -35,6 +35,15 @@ export default {
                 xl: "3rem",
                 full: "9999px",
             },
+            keyframes: {
+                bob: {
+                    "0%, 100%": { transform: "translateY(-50px) scale(1.05)" },
+                    "50%": { transform: "translateY(50px) scale(0.95)" },
+                },
+            },
+            animation: {
+                "slow-bob": "bob 6s ease-in-out infinite",
+            },
         },
     },
     plugins: [],
