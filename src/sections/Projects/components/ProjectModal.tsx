@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import type { Dispatch, ReactNode, SetStateAction } from "react";
+import { createPortal } from "react-dom";
 import { getProjectById, type Project } from "../../../data/projects";
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
@@ -78,17 +79,17 @@ export default function ProjectModal({
         };
     }, []);
 
-    return (
+    return createPortal(
         <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
             onClick={() => setOpenModal(false)}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-2"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9999] flex items-center justify-center p-2"
         >
             <div
-                className="relative bg-white rounded-md shadow-[0_24px_48px_-12px_rgba(74,64,224,0.15)] md:w-4/5 lg:w-4/5 xl:w-3/5 overflow-auto max-h-[70dvh] lg:max-h-[85dvh] hide-scrollbar"
+                className="relative z-[10000] bg-white rounded-md shadow-[0_24px_48px_-12px_rgba(74,64,224,0.15)] md:w-4/5 lg:w-4/5 xl:w-3/5 overflow-auto max-h-[70dvh] lg:max-h-[85dvh] hide-scrollbar"
                 onClick={(e) => e.stopPropagation()}
             >
                 <img
@@ -109,6 +110,7 @@ export default function ProjectModal({
                     <GalleryCarousel project={project} />
                 </div>
             </div>
-        </motion.div>
+        </motion.div>,
+        document.body,
     );
 }

@@ -29,6 +29,17 @@ const plvCloudImagePaths = Object.values(plvCloudImages).map(
     (mod: any) => mod.default,
 );
 
+const upturnImages = import.meta.glob(
+    "../assets/projects/upturn/*.{png,jpg,jpeg,svg}",
+    {
+        eager: true,
+    },
+);
+
+const upturnImagePaths = Object.values(upturnImages).map(
+    (mod: any) => mod.default,
+);
+
 export interface Project {
     id: number;
     title: string;
@@ -195,6 +206,58 @@ export const projectsData: Project[] = [
         imgUrls: plvCloudImagePaths,
         gitHubUrl: "https://github.com/RusselxD/plv-cloud",
     },
+    {
+        id: 4,
+        title: "Tax Records Portal for Upturn Business Solutions PH",
+        desc: "A company-wide tax operations and client lifecycle platform built as a core business asset for Upturn Business Solutions PH, unifying onboarding, tax record processing, billing, consultations, and analytics across six role-based portals.",
+        overview:
+            "A production-grade enterprise platform built with React 19, TypeScript, Spring Boot 4, and PostgreSQL to support the day-to-day operations of Upturn Business Solutions PH at a company-wide level. Designed as a business-critical internal system rather than a conventional admin dashboard, it centralizes client onboarding and offboarding, 7-section profile management with approval workflows, tax record task processing, invoicing and payment tracking, consultation logging with billable hour computation, real-time notifications, and performance analytics across six role-based portals. The application uses server-driven workflow permissions and state transitions, fine-grained RBAC, and scoped data access to enforce complex operational rules across the platform. Its business-rule-heavy architecture is built for long-term internal use, with PostgreSQL JSONB supporting flexible structured records, while auditability and concurrency safeguards are handled through activity logs and optimistic locking. Deployed in a production-oriented cloud setup using Railway and Cloudflare Pages, the system is designed for scalability, operational reliability, and maintainable internal service delivery.",
+        techStack: [
+            {
+                name: "React",
+                icon: "devicon:react",
+            },
+            {
+                name: "TypeScript",
+                icon: "logos:typescript-icon",
+            },
+            {
+                name: "Spring Boot",
+                icon: "logos:spring-icon",
+            },
+            {
+                name: "Java",
+                icon: "logos:java",
+            },
+            {
+                name: "PostgreSQL",
+                icon: "logos:postgresql",
+            },
+            {
+                name: "Tailwind CSS",
+                icon: "logos:tailwindcss-icon",
+            },
+            {
+                name: "Railway",
+                icon: "simple-icons:railway",
+            },
+            {
+                name: "Cloudflare Pages",
+                icon: "simple-icons:cloudflarepages",
+            },
+        ],
+        keyFeatures: [
+            "Multi-role access control",
+            "Server-driven workflow actions",
+            "Tax record task pipeline",
+            "Bulk import validation",
+            "JSONB-based data modeling",
+            "Optimistic locking control",
+            "Audit trail logging",
+            "Cloud file storage",
+            "Production cloud deployment",
+        ],
+        imgUrls: upturnImagePaths,
+        gitHubUrl: "https://github.com/RusselxD/tax-records-portal-frontend",
+    },
 ];
-
-console.log(surveySystemImagePaths);
