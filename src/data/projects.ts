@@ -226,16 +226,24 @@ export const projectsData: Project[] = [
                 icon: "logos:spring-icon",
             },
             {
+              name: "PostgreSQL",
+              icon: "logos:postgresql",
+            },
+            {
                 name: "Java",
                 icon: "logos:java",
             },
             {
-                name: "PostgreSQL",
-                icon: "logos:postgresql",
-            },
-            {
                 name: "Tailwind CSS",
                 icon: "logos:tailwindcss-icon",
+            },
+            {
+                name: "Sentry",
+                icon: "simple-icons:sentry",
+            },
+            {
+                name: "Cloudflare R2",
+                icon: "simple-icons:cloudflare",
             },
             {
                 name: "Railway",
