@@ -1,271 +1,271 @@
 import type { TechStack } from "./techStackData";
 
 const dstImages = import.meta.glob(
-    "../assets/projects/dst/*.{png,jpg,jpeg,svg}",
-    {
-        eager: true,
-    },
+  "../assets/projects/dst/*.{png,jpg,jpeg,svg}",
+  {
+    eager: true,
+  },
 );
 const dstImagePaths = Object.values(dstImages).map((mod: any) => mod.default);
 
 const surveySystemImages = import.meta.glob(
-    "../assets/projects/survey_system/*.{png,jpg,jpeg,svg}",
-    {
-        eager: true,
-    },
+  "../assets/projects/survey_system/*.{png,jpg,jpeg,svg}",
+  {
+    eager: true,
+  },
 );
 const surveySystemImagePaths = Object.values(surveySystemImages).map(
-    (mod: any) => mod.default,
+  (mod: any) => mod.default,
 );
 
 const plvCloudImages = import.meta.glob(
-    "../assets/projects/plv_cloud/*.{png,jpg,jpeg,svg}",
-    {
-        eager: true,
-    },
+  "../assets/projects/plv_cloud/*.{png,jpg,jpeg,svg}",
+  {
+    eager: true,
+  },
 );
 
 const plvCloudImagePaths = Object.values(plvCloudImages).map(
-    (mod: any) => mod.default,
+  (mod: any) => mod.default,
 );
 
 const upturnImages = import.meta.glob(
-    "../assets/projects/upturn/*.{png,jpg,jpeg,svg}",
-    {
-        eager: true,
-    },
+  "../assets/projects/upturn/*.{png,jpg,jpeg,svg}",
+  {
+    eager: true,
+  },
 );
 
 const upturnImagePaths = Object.values(upturnImages).map(
-    (mod: any) => mod.default,
+  (mod: any) => mod.default,
 );
 
 export interface Project {
-    id: number;
-    title: string;
-    desc: string;
-    overview: string;
-    techStack: TechStack[];
-    keyFeatures: string[];
-    imgUrls: string[];
-    gitHubUrl: string;
+  id: number;
+  title: string;
+  desc: string;
+  overview: string;
+  techStack: TechStack[];
+  keyFeatures: string[];
+  imgUrls: string[];
+  gitHubUrl: string;
 }
 
 export const getProjectById = (id: number): Project => {
-    const project = projectsData.find((proj) => proj.id === id);
-    if (!project) {
-        throw new Error(`Project with id ${id} not found`);
-    }
-    return project;
+  const project = projectsData.find((proj) => proj.id === id);
+  if (!project) {
+    throw new Error(`Project with id ${id} not found`);
+  }
+  return project;
 };
 
 export const projectsData: Project[] = [
-    {
-        id: 1,
-        title: "Drake Sugary Treats' Website",
-        desc: "A MERN-based menu and order management platform for small food and beverage businesses, enabling flexible menu configuration and a real-time, mobile-friendly customer ordering experience.",
-        overview:
-            "A dynamic menu and order management platform built with the MERN stack for small food and beverage businesses. It provides an admin panel with a modular menu editor supporting multi-size pricing, flavor sets, grouped pricing rules, availability toggles, and inline editing with optimistic updates. The backend validates and stores structured product data via RESTful APIs, while the customer interface delivers real-time price calculation, cart aggregation, a synced floating cart, and a shareable order summary. The UI is built with Tailwind CSS for fast, responsive, and mobile-first interactions.",
-        techStack: [
-            {
-                name: "React",
-                icon: "devicon:react",
-            },
-            {
-                name: "Express.js",
-                icon: "skill-icons:expressjs-light",
-            },
-            {
-                name: "Node.js",
-                icon: "logos:nodejs-icon",
-            },
-            {
-                name: "MongoDB",
-                icon: "devicon:mongodb",
-            },
-            {
-                name: "Tailwind CSS",
-                icon: "logos:tailwindcss-icon",
-            },
-            {
-                name: "Axios",
-                icon: "simple-icons:axios",
-            },
+  {
+    id: 1,
+    title: "Drake Sugary Treats' Website",
+    desc: "A MERN-based menu and order management platform for small food and beverage businesses, enabling flexible menu configuration and a real-time, mobile-friendly customer ordering experience.",
+    overview:
+      "A dynamic menu and order management platform built with the MERN stack for small food and beverage businesses. It provides an admin panel with a modular menu editor supporting multi-size pricing, flavor sets, grouped pricing rules, availability toggles, and inline editing with optimistic updates. The backend validates and stores structured product data via RESTful APIs, while the customer interface delivers real-time price calculation, cart aggregation, a synced floating cart, and a shareable order summary. The UI is built with Tailwind CSS for fast, responsive, and mobile-first interactions.",
+    techStack: [
+      {
+        name: "React",
+        icon: "devicon:react",
+      },
+      {
+        name: "Express.js",
+        icon: "skill-icons:expressjs-light",
+      },
+      {
+        name: "Node.js",
+        icon: "logos:nodejs-icon",
+      },
+      {
+        name: "MongoDB",
+        icon: "devicon:mongodb",
+      },
+      {
+        name: "Tailwind CSS",
+        icon: "logos:tailwindcss-icon",
+      },
+      {
+        name: "Axios",
+        icon: "simple-icons:axios",
+      },
 
-            { name: "Vercel", icon: "logos:vercel-icon" },
-            { name: "Render", icon: "simple-icons:render" },
-        ],
-        keyFeatures: [
-            "Dynamic menu builder",
-            "Price group system",
-            "RESTful API integration",
-            "Real-time cart system",
-            "Order summary modal",
-            "Copy-to-message generator",
-            "Admin authentication",
-            "Responsive layout",
-            "Structured database schema",
-        ],
-        imgUrls: dstImagePaths,
-        gitHubUrl: "https://github.com/RusselxD/dst-frontend",
-    },
-    {
-        id: 2,
-        title: "Survey Management with Data Analysis",
-        desc: "An enterprise-grade survey platform that enables secure survey creation, large-scale response handling, and advanced analytics through a dual admin and respondent interface.",
-        overview:
-            "An enterprise-grade survey platform built with React/TypeScript, ASP.NET Core, and SQL Server, focused on scalable survey creation and analytics. It implements JWT-based authentication and RBAC across an admin portal and a public respondent interface. Administrators design surveys using a modular builder with 10+ question types, validation, and conditional logic. A multi-dimensional analytics engine provides Chart.js visualizations for trends, engagement, completion metrics, and survey performance, with backend optimizations for handling millions of responses, QR code access, and PDF/Excel exports.",
-        techStack: [
-            {
-                name: "React",
-                icon: "devicon:react",
-            },
-            {
-                name: "TypeScript",
-                icon: "logos:typescript-icon",
-            },
-            {
-                name: "ASP.NET",
-                icon: "logos:dotnet",
-            },
-            {
-                name: "SQL Server",
-                icon: "devicon:microsoftsqlserver",
-            },
-            {
-                name: "Tailwind CSS",
-                icon: "logos:tailwindcss-icon",
-            },
-            {
-                name: "daisyUI",
-                icon: "simple-icons:daisyui",
-                color: "#5A0EF8",
-            },
-            {
-                name: "Axios",
-                icon: "simple-icons:axios",
-            },
-            { name: "JWT", icon: "devicon:jwt" },
-        ],
-        keyFeatures: [
-            "Multi-dimensional analytics engine",
-            "Multi-type survey builder",
-            "High-volume data handling",
-            "JWT-based RBAC system",
-            "Survey performance metrics",
-            "Multi-format exports",
-            "QR code generation",
-            "Protected routing",
-            "RESTful API architecture",
-        ],
-        imgUrls: surveySystemImagePaths,
-        gitHubUrl: "https://github.com/RusselxD/survey-system-frontend",
-    },
-    {
-        id: 3,
-        title: "PLV Cloud",
-        desc: "A production-ready Laravel/Livewire file-sharing platform for Pamantasan ng Lungsod ng Valenzuela that delivers secure, role-based cloud storage, collaboration, and scalable deployment.",
-        overview:
-            "A production-ready file-sharing web application built with Laravel/Livewire and PostgreSQL, designed for Pamantasan ng Lungsod ng Valenzuela. It features secure authentication with role-based access control, hierarchical folder management with unlimited nesting, and Cloudinary-backed storage with automatic optimization. The platform supports public and private collaboration with granular permissions, real-time search, detailed activity logging, notifications, and course-linked file organization. Background jobs are handled through queue-based processing, with deployment via Docker, Nginx, Vite, and Tailwind CSS with Alpine.js for scalable CI/CD.",
-        techStack: [
-            {
-                name: "Laravel",
-                icon: "logos:laravel",
-            },
-            {
-                name: "Livewire",
-                icon: "devicon:livewire",
-            },
-            {
-                name: "Alpine JS",
-                icon: "devicon:alpinejs",
-            },
-            {
-                name: "Tailwind CSS",
-                icon: "logos:tailwindcss-icon",
-            },
-            {
-                name: "PostgreSQL",
-                icon: "logos:postgresql",
-            },
-            { name: "Render", icon: "simple-icons:render" },
-        ],
-        keyFeatures: [
-            "Hierarchical folder management",
-            "Cloudinary CDN integration",
-            "Real-time collaboration",
-            "Comprehensive activity logging",
-            "In-app notification center",
-            "Responsive interface",
-            "Compatible across devices",
-            "Docker production deployment",
-            "Admin dashboard interface",
-            "Content reporting system",
-            "Advanced search and filtering",
-        ],
-        imgUrls: plvCloudImagePaths,
-        gitHubUrl: "https://github.com/RusselxD/plv-cloud",
-    },
-    {
-        id: 4,
-        title: "Tax Records Portal for Upturn Business Solutions PH",
-        desc: "A company-wide tax operations and client lifecycle platform built as a core business asset for Upturn Business Solutions PH, unifying onboarding, tax record processing, billing, consultations, and analytics across six role-based portals.",
-        overview:
-            "A production-grade enterprise platform built with React 19, TypeScript, Spring Boot 4, and PostgreSQL to support the day-to-day operations of Upturn Business Solutions PH at a company-wide level. Designed as a business-critical internal system rather than a conventional admin dashboard, it centralizes client onboarding and offboarding, 7-section profile management with approval workflows, tax record task processing, invoicing and payment tracking, consultation logging with billable hour computation, real-time notifications, and performance analytics across six role-based portals. The application uses server-driven workflow permissions and state transitions, fine-grained RBAC, and scoped data access to enforce complex operational rules across the platform. Its business-rule-heavy architecture is built for long-term internal use, with PostgreSQL JSONB supporting flexible structured records, while auditability and concurrency safeguards are handled through activity logs and optimistic locking. Deployed in a production-oriented cloud setup using Railway and Cloudflare Pages, the system is designed for scalability, operational reliability, and maintainable internal service delivery.",
-        techStack: [
-            {
-                name: "React",
-                icon: "devicon:react",
-            },
-            {
-                name: "TypeScript",
-                icon: "logos:typescript-icon",
-            },
-            {
-                name: "Spring Boot",
-                icon: "logos:spring-icon",
-            },
-            {
-              name: "PostgreSQL",
-              icon: "logos:postgresql",
-            },
-            {
-                name: "Java",
-                icon: "logos:java",
-            },
-            {
-                name: "Tailwind CSS",
-                icon: "logos:tailwindcss-icon",
-            },
-            {
-                name: "Sentry",
-                icon: "simple-icons:sentry",
-            },
-            {
-                name: "Cloudflare R2",
-                icon: "simple-icons:cloudflare",
-            },
-            {
-                name: "Railway",
-                icon: "simple-icons:railway",
-            },
-            {
-                name: "Cloudflare Pages",
-                icon: "simple-icons:cloudflarepages",
-            },
-        ],
-        keyFeatures: [
-            "Multi-role access control",
-            "Server-driven workflow actions",
-            "Tax record task pipeline",
-            "Bulk import validation",
-            "JSONB-based data modeling",
-            "Optimistic locking control",
-            "Audit trail logging",
-            "Cloud file storage",
-            "Production cloud deployment",
-        ],
-        imgUrls: upturnImagePaths,
-        gitHubUrl: "https://github.com/RusselxD/tax-records-portal-frontend",
-    },
+      { name: "Vercel", icon: "logos:vercel-icon" },
+      { name: "Render", icon: "simple-icons:render" },
+    ],
+    keyFeatures: [
+      "Dynamic menu builder",
+      "Price group system",
+      "RESTful API integration",
+      "Real-time cart system",
+      "Order summary modal",
+      "Copy-to-message generator",
+      "Admin authentication",
+      "Responsive layout",
+      "Structured database schema",
+    ],
+    imgUrls: dstImagePaths,
+    gitHubUrl: "https://github.com/RusselxD/dst-frontend",
+  },
+  {
+    id: 2,
+    title: "Survey Management with Data Analysis",
+    desc: "An enterprise-grade survey platform that enables secure survey creation, large-scale response handling, and advanced analytics through a dual admin and respondent interface.",
+    overview:
+      "An enterprise-grade survey platform built with React/TypeScript, ASP.NET Core, and SQL Server, focused on scalable survey creation and analytics. It implements JWT-based authentication and RBAC across an admin portal and a public respondent interface. Administrators design surveys using a modular builder with 10+ question types, validation, and conditional logic. A multi-dimensional analytics engine provides Chart.js visualizations for trends, engagement, completion metrics, and survey performance, with backend optimizations for handling millions of responses, QR code access, and PDF/Excel exports.",
+    techStack: [
+      {
+        name: "React",
+        icon: "devicon:react",
+      },
+      {
+        name: "TypeScript",
+        icon: "logos:typescript-icon",
+      },
+      {
+        name: "ASP.NET",
+        icon: "logos:dotnet",
+      },
+      {
+        name: "SQL Server",
+        icon: "devicon:microsoftsqlserver",
+      },
+      {
+        name: "Tailwind CSS",
+        icon: "logos:tailwindcss-icon",
+      },
+      {
+        name: "daisyUI",
+        icon: "simple-icons:daisyui",
+        color: "#5A0EF8",
+      },
+      {
+        name: "Axios",
+        icon: "simple-icons:axios",
+      },
+      { name: "JWT", icon: "devicon:jwt" },
+    ],
+    keyFeatures: [
+      "Multi-dimensional analytics engine",
+      "Multi-type survey builder",
+      "High-volume data handling",
+      "JWT-based RBAC system",
+      "Survey performance metrics",
+      "Multi-format exports",
+      "QR code generation",
+      "Protected routing",
+      "RESTful API architecture",
+    ],
+    imgUrls: surveySystemImagePaths,
+    gitHubUrl: "https://github.com/RusselxD/survey-system-frontend",
+  },
+  {
+    id: 3,
+    title: "PLV Cloud",
+    desc: "A production-ready Laravel/Livewire file-sharing platform for Pamantasan ng Lungsod ng Valenzuela that delivers secure, role-based cloud storage, collaboration, and scalable deployment.",
+    overview:
+      "A production-ready file-sharing web application built with Laravel/Livewire and PostgreSQL, designed for Pamantasan ng Lungsod ng Valenzuela. It features secure authentication with role-based access control, hierarchical folder management with unlimited nesting, and Cloudinary-backed storage with automatic optimization. The platform supports public and private collaboration with granular permissions, real-time search, detailed activity logging, notifications, and course-linked file organization. Background jobs are handled through queue-based processing, with deployment via Docker, Nginx, Vite, and Tailwind CSS with Alpine.js for scalable CI/CD.",
+    techStack: [
+      {
+        name: "Laravel",
+        icon: "logos:laravel",
+      },
+      {
+        name: "Livewire",
+        icon: "devicon:livewire",
+      },
+      {
+        name: "Alpine JS",
+        icon: "devicon:alpinejs",
+      },
+      {
+        name: "Tailwind CSS",
+        icon: "logos:tailwindcss-icon",
+      },
+      {
+        name: "PostgreSQL",
+        icon: "logos:postgresql",
+      },
+      { name: "Render", icon: "simple-icons:render" },
+    ],
+    keyFeatures: [
+      "Hierarchical folder management",
+      "Cloudinary CDN integration",
+      "Real-time collaboration",
+      "Comprehensive activity logging",
+      "In-app notification center",
+      "Responsive interface",
+      "Compatible across devices",
+      "Docker production deployment",
+      "Admin dashboard interface",
+      "Content reporting system",
+      "Advanced search and filtering",
+    ],
+    imgUrls: plvCloudImagePaths,
+    gitHubUrl: "https://github.com/RusselxD/plv-cloud",
+  },
+  {
+    id: 4,
+    title: "Tax Records Portal for Upturn Business Solutions PH",
+    desc: "A company-wide tax operations and client lifecycle platform built as a core business asset for Upturn Business Solutions PH, unifying onboarding, tax record processing, billing, consultations, and analytics across six role-based portals.",
+    overview:
+      "A production-grade enterprise platform built with React 19, TypeScript, Spring Boot 4, and PostgreSQL to support the day-to-day operations of Upturn Business Solutions PH at a company-wide level. Designed as a business-critical internal system rather than a conventional admin dashboard, it centralizes client onboarding and offboarding, 7-section profile management with approval workflows, tax record task processing, invoicing and payment tracking, consultation logging with billable hour computation, real-time notifications, and performance analytics across six role-based portals. The application uses server-driven workflow permissions and state transitions, fine-grained RBAC, and scoped data access to enforce complex operational rules across the platform. Its business-rule-heavy architecture is built for long-term internal use, with PostgreSQL JSONB supporting flexible structured records, while auditability and concurrency safeguards are handled through activity logs and optimistic locking. Deployed in a production-oriented cloud setup using Railway and Cloudflare Pages, the system is designed for scalability, operational reliability, and maintainable internal service delivery.",
+    techStack: [
+      {
+        name: "React",
+        icon: "devicon:react",
+      },
+      {
+        name: "TypeScript",
+        icon: "logos:typescript-icon",
+      },
+      {
+        name: "Spring Boot",
+        icon: "logos:spring-icon",
+      },
+      {
+        name: "PostgreSQL",
+        icon: "logos:postgresql",
+      },
+      {
+        name: "Java",
+        icon: "logos:java",
+      },
+      {
+        name: "Tailwind CSS",
+        icon: "logos:tailwindcss-icon",
+      },
+      {
+        name: "Sentry",
+        icon: "simple-icons:sentry",
+      },
+      {
+        name: "Cloudflare R2",
+        icon: "simple-icons:cloudflare",
+      },
+      {
+        name: "Railway",
+        icon: "simple-icons:railway",
+      },
+      {
+        name: "Cloudflare Pages",
+        icon: "simple-icons:cloudflarepages",
+      },
+    ],
+    keyFeatures: [
+      "Multi-role access control",
+      "Server-driven workflow actions",
+      "Tax record task pipeline",
+      "Bulk import validation",
+      "JSONB-based data modeling",
+      "Optimistic locking control",
+      "Audit trail logging",
+      "Cloud file storage",
+      "Production cloud deployment",
+    ],
+    imgUrls: upturnImagePaths,
+    gitHubUrl: "https://github.com/RusselxD/tax-records-portal-frontend",
+  },
 ];
