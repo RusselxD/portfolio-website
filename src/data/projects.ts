@@ -1,12 +1,19 @@
 import type { TechStack } from "./techStackData";
 
+const getImagePaths = (images: Record<string, unknown>): string[] =>
+  Object.entries(images)
+    .sort(([pathA], [pathB]) =>
+      pathA.localeCompare(pathB, undefined, { numeric: true }),
+    )
+    .map(([, mod]: any) => mod.default);
+
 const dstImages = import.meta.glob(
   "../assets/projects/dst/*.{png,jpg,jpeg,svg}",
   {
     eager: true,
   },
 );
-const dstImagePaths = Object.values(dstImages).map((mod: any) => mod.default);
+const dstImagePaths = getImagePaths(dstImages);
 
 const surveySystemImages = import.meta.glob(
   "../assets/projects/survey_system/*.{png,jpg,jpeg,svg}",
@@ -14,9 +21,7 @@ const surveySystemImages = import.meta.glob(
     eager: true,
   },
 );
-const surveySystemImagePaths = Object.values(surveySystemImages).map(
-  (mod: any) => mod.default,
-);
+const surveySystemImagePaths = getImagePaths(surveySystemImages);
 
 const plvCloudImages = import.meta.glob(
   "../assets/projects/plv_cloud/*.{png,jpg,jpeg,svg}",
@@ -25,9 +30,7 @@ const plvCloudImages = import.meta.glob(
   },
 );
 
-const plvCloudImagePaths = Object.values(plvCloudImages).map(
-  (mod: any) => mod.default,
-);
+const plvCloudImagePaths = getImagePaths(plvCloudImages);
 
 const upturnImages = import.meta.glob(
   "../assets/projects/upturn/*.{png,jpg,jpeg,svg}",
@@ -36,9 +39,7 @@ const upturnImages = import.meta.glob(
   },
 );
 
-const upturnImagePaths = Object.values(upturnImages).map(
-  (mod: any) => mod.default,
-);
+const upturnImagePaths = getImagePaths(upturnImages);
 
 const ceitCmsImages = import.meta.glob(
   "../assets/projects/ceit_cms/*.{png,jpg,jpeg,svg}",
@@ -47,9 +48,7 @@ const ceitCmsImages = import.meta.glob(
   },
 );
 
-const ceitCmsImagePaths = Object.values(ceitCmsImages).map(
-  (mod: any) => mod.default,
-);
+const ceitCmsImagePaths = getImagePaths(ceitCmsImages);
 
 export interface Project {
   id: number;
@@ -60,7 +59,8 @@ export interface Project {
   techStack: TechStack[];
   keyFeatures: string[];
   imgUrls: string[];
-  gitHubUrl: string;
+  gitHubUrl?: string;
+  liveUrl?: string;
 }
 
 export const getProjectById = (id: number): Project => {
@@ -280,7 +280,7 @@ export const projectsData: Project[] = [
       "Production cloud deployment",
     ],
     imgUrls: upturnImagePaths,
-    gitHubUrl: "https://github.com/RusselxD/tax-records-portal-frontend",
+    liveUrl: "https://portal.upturnbusinesssolutionsph.com",
   },
   {
     id: 5,
@@ -339,6 +339,7 @@ export const projectsData: Project[] = [
     ],
     imgUrls: ceitCmsImagePaths,
     gitHubUrl: "https://github.com/RusselxD/ceit-cms-backend",
+    liveUrl: "https://plvceit.org",
   },
 ].sort(
   (a, b) =>

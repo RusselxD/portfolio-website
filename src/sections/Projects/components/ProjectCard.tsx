@@ -76,17 +76,32 @@ export default function ProjectCard({ project }: { project: Project }) {
                 </div>
 
                 <div className="flex items-center gap-3 mt-1">
-                    <button
-                        className="github-btn"
-                        onClick={() => handleOpenLink(project.gitHubUrl)}
-                    >
-                        <Icon
-                            icon="akar-icons:github-fill"
-                            width={18}
-                            height={18}
-                        />
-                        <span>Github</span>
-                    </button>
+                    {project.liveUrl && (
+                        <button
+                            className="github-btn"
+                            onClick={() => handleOpenLink(project.liveUrl!)}
+                        >
+                            <Icon
+                                icon="solar:global-bold"
+                                width={18}
+                                height={18}
+                            />
+                            <span>Live</span>
+                        </button>
+                    )}
+                    {project.gitHubUrl && (
+                        <button
+                            className="github-btn"
+                            onClick={() => handleOpenLink(project.gitHubUrl!)}
+                        >
+                            <Icon
+                                icon="akar-icons:github-fill"
+                                width={18}
+                                height={18}
+                            />
+                            <span>Github</span>
+                        </button>
+                    )}
                     <button
                         className="view-details-btn group"
                         onClick={() => handleOpenModal()}

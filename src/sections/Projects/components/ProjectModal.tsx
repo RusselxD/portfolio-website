@@ -129,6 +129,27 @@ export default function ProjectModal({
                         {project.overview}
                     </p>
 
+                    <div className="flex flex-wrap items-center gap-3">
+                        {project.liveUrl && (
+                            <button
+                                onClick={() => window.open(project.liveUrl, "_blank")}
+                                className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-on-primary text-xs md:text-sm font-bold transition-opacity hover:opacity-90"
+                            >
+                                <Icon icon="solar:global-bold" width={16} height={16} />
+                                <span>Live Site</span>
+                            </button>
+                        )}
+                        {project.gitHubUrl && (
+                            <button
+                                onClick={() => window.open(project.gitHubUrl, "_blank")}
+                                className="flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:text-on-surface text-xs md:text-sm font-bold transition-colors"
+                            >
+                                <Icon icon="akar-icons:github-fill" width={16} height={16} />
+                                <span>Source</span>
+                            </button>
+                        )}
+                    </div>
+
                     <KeyFeaturesContainer project={project} />
                     <TechStackContainer project={project} />
                     {project.imgUrls.length > 0 && (

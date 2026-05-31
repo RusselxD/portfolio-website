@@ -76,7 +76,7 @@ export default function ProjectRow({
                 {project.desc}
             </p>
 
-            <div className="flex items-center gap-6">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
                 <button
                     onClick={() => setOpenModal(true)}
                     className="flex items-center gap-2 text-primary font-bold group/btn text-sm"
@@ -92,13 +92,25 @@ export default function ProjectRow({
                     />
                 </button>
 
-                <button
-                    onClick={() => window.open(project.gitHubUrl, "_blank")}
-                    className="flex items-center gap-2 text-on-surface-variant hover:text-on-surface font-medium transition-colors text-sm"
-                >
-                    <Icon icon="akar-icons:github-fill" width={16} height={16} />
-                    <span>Source</span>
-                </button>
+                {project.liveUrl && (
+                    <button
+                        onClick={() => window.open(project.liveUrl, "_blank")}
+                        className="flex items-center gap-2 text-on-surface-variant hover:text-on-surface font-medium transition-colors text-sm"
+                    >
+                        <Icon icon="solar:global-bold" width={16} height={16} />
+                        <span>Live Site</span>
+                    </button>
+                )}
+
+                {project.gitHubUrl && (
+                    <button
+                        onClick={() => window.open(project.gitHubUrl, "_blank")}
+                        className="flex items-center gap-2 text-on-surface-variant hover:text-on-surface font-medium transition-colors text-sm"
+                    >
+                        <Icon icon="akar-icons:github-fill" width={16} height={16} />
+                        <span>Source</span>
+                    </button>
+                )}
             </div>
         </motion.div>
     );
