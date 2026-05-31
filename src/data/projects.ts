@@ -40,11 +40,23 @@ const upturnImagePaths = Object.values(upturnImages).map(
   (mod: any) => mod.default,
 );
 
+const ceitCmsImages = import.meta.glob(
+  "../assets/projects/ceit_cms/*.{png,jpg,jpeg,svg}",
+  {
+    eager: true,
+  },
+);
+
+const ceitCmsImagePaths = Object.values(ceitCmsImages).map(
+  (mod: any) => mod.default,
+);
+
 export interface Project {
   id: number;
   title: string;
   desc: string;
   overview: string;
+  role?: string;
   techStack: TechStack[];
   keyFeatures: string[];
   imgUrls: string[];
@@ -58,6 +70,8 @@ export const getProjectById = (id: number): Project => {
   }
   return project;
 };
+
+const projectDisplayOrder = [4, 5, 3, 2, 1];
 
 export const projectsData: Project[] = [
   {
@@ -268,4 +282,65 @@ export const projectsData: Project[] = [
     imgUrls: upturnImagePaths,
     gitHubUrl: "https://github.com/RusselxD/tax-records-portal-frontend",
   },
-];
+  {
+    id: 5,
+    title: "CEIT Content Management System",
+    desc: "A collaborative, deployment-ready college content management platform for CEIT, connecting a public-facing website, admin dashboard, and FastAPI backend for structured publishing, approvals, analytics, and role-based content operations.",
+    overview:
+      "A team-built content management system for the College of Engineering and Information Technology, composed of a public Next.js website, a dedicated admin dashboard, and a FastAPI/PostgreSQL backend. As a lead contributor, I handled the overall CMS structure, application flow, cross-repository integration, deployment preparation, and final system stabilization needed to move the project from repository code into a real-world deployable system. The platform supports role-based user management, JWT-secured admin access, article drafting and approval workflows, public publishing of approved content, newsletter management, Cloudinary-backed media uploads, editable site sections, and dashboard analytics for page views, post frequency, article counts, and active administrators. The architecture separates the public experience from administrative operations while keeping both applications synchronized through shared REST API contracts and database-backed content models, with finalization focused on production readiness and maintainable handoff.",
+    role: "Lead Contributor",
+    techStack: [
+      {
+        name: "Next.js",
+        icon: "devicon:nextjs",
+      },
+      {
+        name: "React",
+        icon: "devicon:react",
+      },
+      {
+        name: "TypeScript",
+        icon: "logos:typescript-icon",
+      },
+      {
+        name: "FastAPI",
+        icon: "devicon:fastapi",
+      },
+      {
+        name: "PostgreSQL",
+        icon: "logos:postgresql",
+      },
+      {
+        name: "SQLAlchemy",
+        icon: "devicon-plain:sqlalchemy",
+      },
+      {
+        name: "Tailwind CSS",
+        icon: "logos:tailwindcss-icon",
+      },
+      {
+        name: "Cloudinary",
+        icon: "simple-icons:cloudinary",
+      },
+    ],
+    keyFeatures: [
+      "Three-repository system architecture",
+      "Public website and admin dashboard integration",
+      "JWT-based authentication",
+      "Role-based publishing permissions",
+      "Article draft and approval workflow",
+      "Newsletter management",
+      "Editable site content sections",
+      "Cloudinary media uploads",
+      "Dashboard analytics",
+      "PostgreSQL-backed content models",
+      "Alembic database migrations",
+      "Production deployment finalization",
+    ],
+    imgUrls: ceitCmsImagePaths,
+    gitHubUrl: "https://github.com/RusselxD/ceit-cms-backend",
+  },
+].sort(
+  (a, b) =>
+    projectDisplayOrder.indexOf(a.id) - projectDisplayOrder.indexOf(b.id),
+);

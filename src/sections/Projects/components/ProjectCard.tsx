@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 
 export default function ProjectCard({ project }: { project: Project }) {
     const [openModal, setOpenModal] = useState(false);
+    const primaryImage = project.imgUrls[0];
 
     const handleOpenLink = (url: string) => {
         window.open(url, "_blank");
@@ -23,15 +24,38 @@ export default function ProjectCard({ project }: { project: Project }) {
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="rounded-lg w-full overflow-hidden glass-panel glass-panel-hover"
         >
-            <img
-                src={project.imgUrls[0]}
-                alt={project.title}
-                className="object-cover w-full"
-            />
+            {primaryImage ? (
+                <img
+                    src={primaryImage}
+                    alt={project.title}
+                    className="object-cover w-full"
+                />
+            ) : (
+                <div className="w-full h-48 bg-surface-container-low flex items-center justify-center">
+                    <Icon
+                        icon="solar:gallery-minimalistic-bold"
+                        className="text-primary/50"
+                        width={40}
+                        height={40}
+                    />
+                </div>
+            )}
             <div className="p-5 md:p-6 flex flex-col gap-3">
-                <h3 className="font-bold text-on-surface md:text-lg">
-                    {project.title}
-                </h3>
+                <div className="flex flex-wrap items-center gap-2">
+                    <h3 className="font-bold text-on-surface md:text-lg">
+                        {project.title}
+                    </h3>
+                    {project.role && (
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-bold">
+                            <Icon
+                                icon="solar:medal-ribbons-star-bold"
+                                width={14}
+                                height={14}
+                            />
+                            {project.role}
+                        </span>
+                    )}
+                </div>
                 <p className="text-sm text-on-surface-variant leading-relaxed">
                     {project.desc}
                 </p>

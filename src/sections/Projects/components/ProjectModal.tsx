@@ -71,6 +71,7 @@ export default function ProjectModal({
     setOpenModal,
 }: ProjectModalProps) {
     const project: Project = getProjectById(projectIdx);
+    const primaryImage = project.imgUrls[0];
 
     useEffect(() => {
         document.body.style.overflow = "hidden";
@@ -92,22 +93,47 @@ export default function ProjectModal({
                 className="relative z-[10000] bg-white rounded-md shadow-[0_24px_48px_-12px_rgba(74,64,224,0.15)] md:w-4/5 lg:w-4/5 xl:w-3/5 overflow-auto max-h-[70dvh] lg:max-h-[85dvh] hide-scrollbar"
                 onClick={(e) => e.stopPropagation()}
             >
-                <img
-                    src={project.imgUrls[0]}
-                    alt={project.title}
-                    className="w-full object-cover md:h-80"
-                />
+                {primaryImage ? (
+                    <img
+                        src={primaryImage}
+                        alt={project.title}
+                        className="w-full object-cover md:h-80"
+                    />
+                ) : (
+                    <div className="w-full h-56 md:h-80 bg-surface-container-low flex items-center justify-center">
+                        <Icon
+                            icon="solar:gallery-minimalistic-bold"
+                            className="text-primary/50"
+                            width={48}
+                            height={48}
+                        />
+                    </div>
+                )}
                 <div className="p-5 md:p-6 flex flex-col gap-4">
-                    <h2 className="font-bold text-on-surface md:text-lg">
-                        {project.title}
-                    </h2>
+                    <div className="flex flex-wrap items-center gap-2">
+                        <h2 className="font-bold text-on-surface md:text-lg">
+                            {project.title}
+                        </h2>
+                        {project.role && (
+                            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-bold">
+                                <Icon
+                                    icon="solar:medal-ribbons-star-bold"
+                                    width={14}
+                                    height={14}
+                                />
+                                {project.role}
+                            </span>
+                        )}
+                    </div>
                     <p className="text-on-surface-variant text-xs md:text-sm !leading-7">
                         {project.overview}
                     </p>
 
                     <KeyFeaturesContainer project={project} />
                     <TechStackContainer project={project} />
-                    <GalleryCarousel project={project} />
+                    {project.imgUrls.length > 0 && (
+                        <GalleryCarousel project={project} />
+                    )}
                 </div>
             </div>
         </motion.div>,

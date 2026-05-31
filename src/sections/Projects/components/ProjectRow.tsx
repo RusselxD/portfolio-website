@@ -14,6 +14,7 @@ export default function ProjectRow({
     reverse = false,
 }: ProjectRowProps) {
     const [openModal, setOpenModal] = useState(false);
+    const primaryImage = project.imgUrls[0];
 
     const imageBlock = (
         <motion.div
@@ -23,11 +24,22 @@ export default function ProjectRow({
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="md:col-span-6 group overflow-hidden rounded-[1rem] luminous-shadow"
         >
-            <img
-                src={project.imgUrls[0]}
-                alt={project.title}
-                className="w-full h-52 md:h-60 lg:h-72 object-cover object-top transition-transform duration-700 group-hover:scale-105"
-            />
+            {primaryImage ? (
+                <img
+                    src={primaryImage}
+                    alt={project.title}
+                    className="w-full h-52 md:h-60 lg:h-72 object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                />
+            ) : (
+                <div className="w-full h-52 md:h-60 lg:h-72 bg-surface-container-low flex items-center justify-center">
+                    <Icon
+                        icon="solar:gallery-minimalistic-bold"
+                        className="text-primary/50"
+                        width={42}
+                        height={42}
+                    />
+                </div>
+            )}
         </motion.div>
     );
 
@@ -40,6 +52,12 @@ export default function ProjectRow({
             className="md:col-span-6 flex flex-col justify-center"
         >
             <div className="flex flex-wrap gap-2 mb-3">
+                {project.role && (
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-bold">
+                        <Icon icon="solar:medal-ribbons-star-bold" width={14} height={14} />
+                        {project.role}
+                    </span>
+                )}
                 {project.techStack.slice(0, 4).map((tech) => (
                     <span
                         key={tech.name}
