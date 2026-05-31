@@ -15,6 +15,7 @@ export default function GalleryCarousel({ project }: { project: Project }) {
     const containerRef = useRef<HTMLDivElement>(null);
     const firstImageRef = useRef<HTMLImageElement>(null);
     const lastImageRef = useRef<HTMLImageElement>(null);
+    const selectedMobileImageRef = useRef<HTMLImageElement>(null);
 
     const closeLightbox = () => setSelectedImageIdx(null);
 
@@ -146,11 +147,21 @@ export default function GalleryCarousel({ project }: { project: Project }) {
         return () => window.removeEventListener("keydown", handleKeyDown);
     }, [selectedImageIdx, project.imgUrls.length]);
 
+    useEffect(() => {
+        if (selectedImageIdx === null) return;
+
+        requestAnimationFrame(() => {
+            selectedMobileImageRef.current?.scrollIntoView({
+                block: "center",
+            });
+        });
+    }, [selectedImageIdx]);
+
     const lightbox =
         selectedImageIdx !== null
             ? createPortal(
                   <div
-                      className="fixed inset-0 z-[10050] bg-black/90 backdrop-blur-sm flex items-center justify-center p-3 md:p-6"
+                      className="fixed inset-0 z-[10050] bg-black/90 backdrop-blur-sm overflow-y-auto md:overflow-hidden md:flex md:items-center md:justify-center p-3 md:p-6"
                       onClick={closeLightbox}
                   >
                       <button
@@ -158,7 +169,7 @@ export default function GalleryCarousel({ project }: { project: Project }) {
                               event.stopPropagation();
                               closeLightbox();
                           }}
-                          className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors"
+                          className="fixed top-4 right-4 md:top-6 md:right-6 w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors z-[10060]"
                           aria-label="Close gallery image"
                       >
                           <Icon icon="line-md:close" width={22} height={22} />
@@ -170,7 +181,7 @@ export default function GalleryCarousel({ project }: { project: Project }) {
                                   event.stopPropagation();
                                   showPreviousImage();
                               }}
-                              className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 text-white hidden sm:flex items-center justify-center hover:bg-white/20 transition-colors"
+                              className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 text-white hidden md:flex items-center justify-center hover:bg-white/20 transition-colors"
                               aria-label="Previous gallery image"
                           >
                               <Icon
@@ -182,7 +193,26 @@ export default function GalleryCarousel({ project }: { project: Project }) {
                       )}
 
                       <div
-                          className="w-full h-full flex flex-col items-center justify-center gap-4"
+                          className="md:hidden w-full max-w-3xl mx-auto py-16 space-y-4"
+                          onClick={(event) => event.stopPropagation()}
+                      >
+                          {project.imgUrls.map((url, i) => (
+                              <img
+                                  src={url}
+                                  alt={`${project.title} screenshot ${i + 1}`}
+                                  className="w-full rounded-md shadow-2xl"
+                                  key={url}
+                                  ref={
+                                      i === selectedImageIdx
+                                          ? selectedMobileImageRef
+                                          : null
+                                  }
+                              />
+                          ))}
+                      </div>
+
+                      <div
+                          className="hidden md:flex w-full h-full flex-col items-center justify-center gap-4"
                           onClick={(event) => event.stopPropagation()}
                       >
                           <img
@@ -190,7 +220,7 @@ export default function GalleryCarousel({ project }: { project: Project }) {
                               alt={`${project.title} screenshot ${selectedImageIdx + 1}`}
                               className="max-w-full max-h-[82dvh] object-contain rounded-md shadow-2xl"
                           />
-                          <span className="text-white/70 text-xs md:text-sm">
+                          <span className="text-white/70 text-sm">
                               {selectedImageIdx + 1} / {project.imgUrls.length}
                           </span>
                       </div>
@@ -201,7 +231,7 @@ export default function GalleryCarousel({ project }: { project: Project }) {
                                   event.stopPropagation();
                                   showNextImage();
                               }}
-                              className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 text-white hidden sm:flex items-center justify-center hover:bg-white/20 transition-colors"
+                              className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 text-white hidden md:flex items-center justify-center hover:bg-white/20 transition-colors"
                               aria-label="Next gallery image"
                           >
                               <Icon
@@ -219,26 +249,9 @@ export default function GalleryCarousel({ project }: { project: Project }) {
     return (
         <>
             <Container title="Gallery">
-                <div className="md:hidden flex flex-col gap-3">
-                    {project.imgUrls.map((url, i) => (
-                        <button
-                            type="button"
-                            onClick={() => setSelectedImageIdx(i)}
-                            className="w-full overflow-hidden rounded-md bg-surface-container-low"
-                            key={url}
-                        >
-                            <img
-                                src={url}
-                                alt={`${project.title} screenshot ${i + 1}`}
-                                className="w-full object-cover object-top"
-                            />
-                        </button>
-                    ))}
-                </div>
-
                 <div
                     ref={containerRef}
-                    className="hidden md:block overflow-x-auto hide-scrollbar"
+                    className="overflow-x-auto hide-scrollbar"
                     onMouseEnter={() => adjustSpeed(true)}
                     onMouseLeave={() => adjustSpeed(false)}
                     onTouchStart={() => adjustSpeed(true)}
@@ -246,7 +259,7 @@ export default function GalleryCarousel({ project }: { project: Project }) {
                     onTouchCancel={() => adjustSpeed(false)}
                 >
                     <div
-                        className="flex items-center gap-2 text-sm px-2 w-fit"
+                        className="flex items-center gap-2 text-xs md:text-sm px-2 w-fit"
                         style={{ transform: `translateX(-${translateX}px)` }}
                     >
                         {project.imgUrls.map((url, i) => {
@@ -260,7 +273,7 @@ export default function GalleryCarousel({ project }: { project: Project }) {
                                     <img
                                         src={url}
                                         alt={`${project.title} screenshot ${i + 1}`}
-                                        className="h-52 rounded-md"
+                                        className="h-40 md:h-52 rounded-md"
                                         ref={
                                             i === 0
                                                 ? firstImageRef
